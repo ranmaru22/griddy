@@ -3,7 +3,7 @@
 
 .bg {
   @each $color in c.$colors {
-    &-#{$color} {
+    &-#{"" + $color} {
       background-color: $color;
     }
   }
@@ -17,7 +17,7 @@
 
 .hover\:bg {
   @each $color in c.$colors {
-    &-#{$color}:hover {
+    &-#{"" + $color}:hover {
       background-color: $color;
     }
   }
@@ -31,28 +31,28 @@
 
 .text {
   @each $color in c.$colors {
-    &-#{$color} {
-      background-color: $color;
+    &-#{"" + $color} {
+      color: $color;
     }
   }
 
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
-      background-color: $val;
+      color: $val;
     }
   }
 }
 
 .hover\:text {
   @each $color in c.$colors {
-    &-#{$color}:hover {
-      background-color: $color;
+    &-#{"" + $color}:hover {
+      color: $color;
     }
   }
 
   @each $name, $val in user.$custom-colors {
     &-#{$name}:hover {
-      background-color: $val;
+      color: $val;
     }
   }
 }
