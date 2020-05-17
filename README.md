@@ -1,2 +1,9 @@
 # griddy
-A low-level grid-based CSS framework
+
+griddy is a low-level grid-based CSS framework, inspired by the awesome [Tailwind CSS](https://github.com/tailwindcss) and originally built as a capstone project for [The Odin Project](https://www.theodinproject.com/home)'s HTML and CSS course.
+
+## Documentation
+Placeholder. I'll add something here later. :)
+
+## License
+griddy is licensed under GPL3, so feel free to fork and play around with it.
