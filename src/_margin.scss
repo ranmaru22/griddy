@@ -1,0 +1,68 @@
+@use "../user.config" as user;
+
+$margin-values: (
+  0: 0,
+  1: user.$spacer * 0.25,
+  2: user.$spacer * 0.5,
+  3: user.$spacer,
+  4: user.$spacer * 1.5,
+  5: user.$spacer * 3,
+);
+
+.p {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin: $val;
+    }
+  }
+}
+
+.px {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-left: $val;
+      margin-right: $val;
+    }
+  }
+}
+
+.py {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-top: $val;
+      margin-bottom: $val;
+    }
+  }
+}
+
+.pt {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-top: $val;
+    }
+  }
+}
+
+.pb {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-bottom: $val;
+    }
+  }
+}
+
+.pl {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-left: $val;
+    }
+  }
+}
+
+.pr {
+  @each $key, $val in $margin-values {
+    &-#{$key} {
+      margin-right: $val;
+    }
+  }
+}
