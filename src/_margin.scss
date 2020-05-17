@@ -9,7 +9,7 @@ $margin-values: (
   5: user.$spacer * 3,
 );
 
-.p {
+.m {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin: $val;
@@ -17,7 +17,7 @@ $margin-values: (
   }
 }
 
-.px {
+.mx {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-left: $val;
@@ -26,7 +26,7 @@ $margin-values: (
   }
 }
 
-.py {
+.my {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-top: $val;
@@ -35,7 +35,7 @@ $margin-values: (
   }
 }
 
-.pt {
+.mt {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-top: $val;
@@ -43,7 +43,7 @@ $margin-values: (
   }
 }
 
-.pb {
+.mb {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-bottom: $val;
@@ -51,7 +51,7 @@ $margin-values: (
   }
 }
 
-.pl {
+.ml {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-left: $val;
@@ -59,7 +59,7 @@ $margin-values: (
   }
 }
 
-.pr {
+.mr {
   @each $key, $val in $margin-values {
     &-#{$key} {
       margin-right: $val;
