@@ -2,6 +2,9 @@
  * This file is meant to extend the functionality of griddy.
 */
 
+// Define the base value for spacing.
+$spacer: 1em;
+
 $custom-colors: (
   /* 
      * Define your own colors by adding them to this array.
