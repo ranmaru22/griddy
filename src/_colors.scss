@@ -15,7 +15,35 @@
   }
 }
 
+.hover\:bg {
+  @each $color in c.$colors {
+    &-#{$color} {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      background-color: $val;
+    }
+  }
+}
+
 .text {
+  @each $color in c.$colors {
+    &-#{$color} {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      background-color: $val;
+    }
+  }
+}
+
+.hover\:text {
   @each $color in c.$colors {
     &-#{$color} {
       background-color: $color;
