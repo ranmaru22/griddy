@@ -17,13 +17,13 @@
 
 .hover\:bg {
   @each $color in c.$colors {
-    &-#{$color} {
+    &-#{$color}:hover {
       background-color: $color;
     }
   }
 
   @each $name, $val in user.$custom-colors {
-    &-#{$name} {
+    &-#{$name}:hover {
       background-color: $val;
     }
   }
@@ -45,13 +45,13 @@
 
 .hover\:text {
   @each $color in c.$colors {
-    &-#{$color} {
+    &-#{$color}:hover {
       background-color: $color;
     }
   }
 
   @each $name, $val in user.$custom-colors {
-    &-#{$name} {
+    &-#{$name}:hover {
       background-color: $val;
     }
   }
