@@ -1,9 +1,13 @@
 .align {
-  &-left {
+  &-left,
+  &-start {
     text-align: left;
+    text-align: start;
   }
-  &-right {
+  &-right,
+  &-end {
     text-align: right;
+    text-align: end;
   }
   &-center {
     text-align: center;
