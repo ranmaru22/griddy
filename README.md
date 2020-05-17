@@ -5,5 +5,8 @@ griddy is a low-level grid-based CSS framework, inspired by the awesome [Tailwin
 ## Documentation
 Placeholder. I'll add something here later. :)
 
+## Credits
+* [Reset CSS](https://meyerweb.com/eric/tools/css/reset/) by Eric A. Meyer
+
 ## License
 griddy is licensed under GPL3, so feel free to fork and play around with it.
