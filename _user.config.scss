@@ -1,15 +1,20 @@
 /*
  * This file is meant to extend the functionality of griddy.
+ * To override a default:
+ * @use "griddy/main" with ($variable: <value>);
  */
 
-// Define the base value for spacing.
-$spacer: 1em;
+// Define the default breakpoints.
+$xl: 1200px !default;
+$lg: 990px !default;
+$md: 770px !default;
+$sm: 500px !default;
 
+// Define the base value for spacing.
+$spacer: 1em !default;
+
+// Define your own custom colors by adding them to the map.
 $custom-colors: (
-  /* 
-   * Define your own colors by adding them to this array.
-   * The syntax is `"color-name": "value"`, like this:
-   * "coolcustomcolor": #123456,
-   * "anothercolor": rgba(100, 125, 125, .5),
-   */
-);
+  // "coolcustomcolor": #123456,
+    // "anothercolor": rgba(100, 125, 125, .5),
+) !default;
