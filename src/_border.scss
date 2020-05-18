@@ -9,35 +9,28 @@
 
 .border {
   @include border();
-
   &-0 {
     border: none;
   }
-
   &-dashed {
     @include border($s: dashed);
   }
-
   &-dotted {
     @include border($s: dotted);
   }
-
   &-inset {
     @include border($s: inset);
   }
-
   @for $i from 1 through 10 {
     &-#{$i} {
       border-width: #{$i}px;
     }
   }
-
   @each $color in c.$colors {
     &-#{"" + $color} {
       border-color: $color;
     }
   }
-
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
       border-color: $val;
@@ -46,5 +39,11 @@
 }
 
 .rounded {
+  border-radius: 0.5rem;
+}
+.rounder {
   border-radius: 1rem;
+}
+.circled {
+  border-radius: 100%;
 }
