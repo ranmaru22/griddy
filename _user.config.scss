@@ -14,7 +14,5 @@ $sm: 640px !default;
 $spacer: 1rem !default;
 
 // Define your own custom colors by adding them to the map.
-$custom-colors: (
-  // "coolcustomcolor": #123456,
-    // "anothercolor": rgba(100, 125, 125, .5),
-) !default;
+// e.g. "coolcustomcolor": #123456
+$custom-colors: () !default;
