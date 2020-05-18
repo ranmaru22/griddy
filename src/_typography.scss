@@ -34,3 +34,26 @@
     font-weight: 100;
   }
 }
+
+.style {
+  &-0 {
+    font-style: normal;
+    font-variant: normal;
+    text-decoration: none;
+  }
+  &-italic {
+    font-style: italic;
+  }
+  &-oblique {
+    font-style: oblique;
+  }
+  &-caps {
+    font-variant: small-caps;
+  }
+  &-underline {
+    text-decoration: underline;
+  }
+  &-strikethrough {
+    text-decoration: line-through;
+  }
+}
