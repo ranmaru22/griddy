@@ -29,6 +29,20 @@
   }
 }
 
+.active\:bg {
+  @each $color in c.$colors {
+    &-#{"" + $color}:active {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:active {
+      background-color: $val;
+    }
+  }
+}
+
 .text {
   @each $color in c.$colors {
     &-#{"" + $color} {
@@ -52,6 +66,20 @@
 
   @each $name, $val in user.$custom-colors {
     &-#{$name}:hover {
+      color: $val;
+    }
+  }
+}
+
+.active\:text {
+  @each $color in c.$colors {
+    &-#{"" + $color}:active {
+      color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:active {
       color: $val;
     }
   }
