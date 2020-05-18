@@ -1,7 +1,7 @@
 @use "color-names" as c;
 @use "../user.config" as user;
 
-.bg {
+@mixin bg {
   @each $color in c.$colors {
     &-#{"" + $color} {
       background-color: $color;
@@ -11,76 +11,142 @@
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
       background-color: $val;
+    }
+  }
+}
+
+@mixin hover-bg {
+  @each $color in c.$colors {
+    &-#{"" + $color}:hover {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:hover {
+      background-color: $val;
+    }
+  }
+}
+
+@mixin active-bg {
+  @each $color in c.$colors {
+    &-#{"" + $color}:active {
+      background-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:active {
+      background-color: $val;
+    }
+  }
+}
+
+@mixin text {
+  @each $color in c.$colors {
+    &-#{"" + $color} {
+      color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      color: $val;
+    }
+  }
+}
+
+@mixin hover-text {
+  @each $color in c.$colors {
+    &-#{"" + $color}:hover {
+      color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:hover {
+      color: $val;
+    }
+  }
+}
+
+@mixin active-text {
+  @each $color in c.$colors {
+    &-#{"" + $color}:active {
+      color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name}:active {
+      color: $val;
+    }
+  }
+}
+
+.bg {
+  @include bg();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:bg {
+    @media screen and (max-width: $breakpoint) {
+      @include bg();
     }
   }
 }
 
 .hover\:bg {
-  @each $color in c.$colors {
-    &-#{"" + $color}:hover {
-      background-color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:hover {
-      background-color: $val;
+  @include hover-bg();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:hover\:bg {
+    @media screen and (max-width: $breakpoint) {
+      @include hover-bg();
     }
   }
 }
 
 .active\:bg {
-  @each $color in c.$colors {
-    &-#{"" + $color}:active {
-      background-color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:active {
-      background-color: $val;
+  @include active-bg();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:active\:bg {
+    @media screen and (max-width: $breakpoint) {
+      @include active-bg();
     }
   }
 }
 
 .text {
-  @each $color in c.$colors {
-    &-#{"" + $color} {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name} {
-      color: $val;
+  @include text();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:text {
+    @media screen and (max-width: $breakpoint) {
+      @include text();
     }
   }
 }
 
 .hover\:text {
-  @each $color in c.$colors {
-    &-#{"" + $color}:hover {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:hover {
-      color: $val;
+  @include hover-text();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:hover\:text {
+    @media screen and (max-width: $breakpoint) {
+      @include hover-text();
     }
   }
 }
 
 .active\:text {
-  @each $color in c.$colors {
-    &-#{"" + $color}:active {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:active {
-      color: $val;
+  @include active-text();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:active\:text {
+    @media screen and (max-width: $breakpoint) {
+      @include active-text();
     }
   }
 }
