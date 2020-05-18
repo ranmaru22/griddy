@@ -1,0 +1,10 @@
+@use "../user.config" as user;
+
+.container {
+  max-width: 100%;
+  @each $key, $val in (xl: user.$xl, lg: user.$lg, md: user.$md, sm: user.$sm) {
+    &-#{$key} {
+      max-width: $val;
+    }
+  }
+}
