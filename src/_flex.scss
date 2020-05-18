@@ -62,24 +62,10 @@
 }
 
 .align-self {
-  &-stretch {
-    align-self: stretch;
-  }
-  &-start {
-    align-self: flex-start;
-  }
-  &-end {
-    align-self: flex-end;
-  }
-  &-center {
-    align-self: center;
-  }
-  &-baseline {
-    align-self: baseline;
-  }
+  @extend .align-items;
 }
 
 .justify-self {
   // This class actually belongs to the grid module but is included her for brevity's sake.
-  @extend .align-self;
+  @extend .align-items;
 }
