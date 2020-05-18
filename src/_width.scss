@@ -2,11 +2,11 @@
 
 $width-values: (
   0: 0,
-  1: user.$spacer,
-  2: user.$spacer * 2,
-  3: user.$spacer * 3,
-  4: user.$spacer * 4,
-  5: user.$spacer * 5,
+  xs: user.$spacer,
+  sm: user.$spacer * 2,
+  md: user.$spacer * 3,
+  lg: user.$spacer * 4,
+  xl: user.$spacer * 5,
   100p: 100px,
   200p: 200px,
   300p: 300px,
