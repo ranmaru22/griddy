@@ -1,25 +1,27 @@
 @use "color-names" as c;
 @use "../user.config" as user;
 
-@mixin border($s: solid) {
+@mixin border {
   border-width: 1px;
-  border-style: $s;
+  border-style: solid;
   border-color: black;
-}
-
-.border {
-  @include border();
   &-0 {
     border: none;
   }
   &-dashed {
-    @include border($s: dashed);
+    border-width: 1px;
+    border-style: dashed;
+    border-color: black;
   }
   &-dotted {
-    @include border($s: dotted);
+    border-width: 1px;
+    border-style: dotted;
+    border-color: black;
   }
   &-inset {
-    @include border($s: inset);
+    border-width: 1px;
+    border-style: inset;
+    border-color: black;
   }
   @for $i from 1 through 10 {
     &-#{$i} {
@@ -38,12 +40,46 @@
   }
 }
 
+.border {
+  @include border();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:border {
+    @media screen and (max-width: $breakpoint) {
+      @include border();
+    }
+  }
+}
+
 .rounded {
   border-radius: 0.5rem;
 }
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:rounded {
+    @media screen and (max-width: $breakpoint) {
+      border-radius: 0.5rem;
+    }
+  }
+}
+
 .rounder {
   border-radius: 1rem;
 }
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:rounder {
+    @media screen and (max-width: $breakpoint) {
+      border-radius: 1rem;
+    }
+  }
+}
+
 .circled {
   border-radius: 100%;
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:circled {
+    @media screen and (max-width: $breakpoint) {
+      border-radius: 100%;
+    }
+  }
 }
