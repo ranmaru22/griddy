@@ -1,0 +1,45 @@
+@use "color-names" as c;
+@use "../user.config" as user;
+
+.border {
+  border-width: 1px;
+  border-style: solid;
+
+  &-0 {
+    border: none;
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+  &-dotted {
+    border-style: dotted;
+  }
+
+  &-inset {
+    border-style: inset;
+  }
+
+  @for $i from 1 through 10 {
+    &-#{$i} {
+      border-width: #{$i}px;
+    }
+  }
+
+  @each $color in c.$colors {
+    &-#{"" + $color} {
+      border-color: $color;
+    }
+  }
+
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      border-color: $val;
+    }
+  }
+}
+
+.rounded {
+  border-radius: 1rem;
+}
