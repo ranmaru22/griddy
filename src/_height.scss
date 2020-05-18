@@ -1,0 +1,33 @@
+@use "../user.config" as user;
+
+$height-values: (
+  0: 0,
+  1: user.$spacer,
+  2: user.$spacer * 2,
+  3: user.$spacer * 3,
+  4: user.$spacer * 4,
+  5: user.$spacer * 5,
+  100p: 100px,
+  200p: 200px,
+  300p: 300px,
+  400p: 400px,
+  500p: 500px,
+  100v: 100vw,
+  75v: 75vw,
+  50v: 50vw,
+  25v: 25vw,
+  10v: 10vw,
+  100: 100%,
+  75: 75%,
+  50: 50%,
+  25: 25%,
+  10: 10%,
+);
+
+.h {
+  @each $key, $val in $height-values {
+    &-#{$key} {
+      height: $val;
+    }
+  }
+}
