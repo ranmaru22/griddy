@@ -35,6 +35,24 @@
   }
 }
 
+.hover\:font-weight {
+  &-bolder:hover {
+    font-weight: 900;
+  }
+  &-bold:hover {
+    font-weight: 700;
+  }
+  &-regular:hover {
+    font-weight: 400;
+  }
+  &-light:hover {
+    font-weight: 200;
+  }
+  &-lighter:hover {
+    font-weight: 100;
+  }
+}
+
 .style {
   &-0 {
     font-style: normal;
@@ -54,6 +72,29 @@
     text-decoration: underline;
   }
   &-strikethrough {
+    text-decoration: line-through;
+  }
+}
+
+.hover\:style {
+  &-0:hover {
+    font-style: normal;
+    font-variant: normal;
+    text-decoration: none;
+  }
+  &-italic:hover {
+    font-style: italic;
+  }
+  &-oblique:hover {
+    font-style: oblique;
+  }
+  &-caps:hover {
+    font-variant: small-caps;
+  }
+  &-underline:hover {
+    text-decoration: underline;
+  }
+  &-strikethrough:hover {
     text-decoration: line-through;
   }
 }
