@@ -1,101 +1,53 @@
-.flex {
-  display: flex;
-}
+@use "../user.config" as user;
 
 .grid {
-  @extend .flex;
-  flex-direction: column;
-}
+  display: grid;
 
-.row {
-  @extend .flex;
-  & > * {
-    flex: 1;
-  }
-}
-
-.col {
-  @for $i from 1 through 12 {
-    &-#{$i} {
-      flex: $i;
+  @for $i from 0 through 12 {
+    &-cols-#{$i} {
+      @if $i == 0 {
+        grid-template-columns: none;
+      } @else {
+        grid-template-columns: repeat(#{$i}, 1fr);
+      }
+    }
+    &-rows-#{$i} {
+      @if $i == 0 {
+        grid-template-rows: none;
+      } @else {
+        grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+      }
     }
   }
 }
 
-.justify {
-  &-start {
-    justify-content: flex-start;
-  }
-  &-end {
-    justify-content: flex-end;
-  }
-  &-center {
-    justify-content: center;
-  }
-  &-around {
-    justify-content: space-around;
-  }
-  &-between {
-    justify-content: space-between;
-  }
-  &-evenly {
-    justify-content: space-evenly;
+.container {
+  max-width: 100%;
+  @each $key, $val in (xl: user.$xl, lg: user.$lg, md: user.$md, sm: user.$sm) {
+    &-#{$key} {
+      max-width: $val;
+    }
   }
 }
 
-.justify-self {
-  &-start {
-    justify-self: flex-start;
-  }
-  &-end {
-    justify-self: flex-end;
-  }
-  &-center {
-    justify-self: center;
-  }
-  &-around {
-    justify-self: space-around;
-  }
-  &-between {
-    justify-self: space-between;
-  }
-  &-evenly {
-    justify-self: space-evenly;
+.order {
+  @for $i from 1 through 12 {
+    &-#{$i} {
+      order: $i;
+    }
   }
 }
 
-.align-items {
-  &-stretch {
-    align-items: stretch;
-  }
-  &-start {
-    align-items: flex-start;
-  }
-  &-end {
-    align-items: flex-end;
-  }
-  &-center {
-    align-items: center;
-  }
-  &-baseline {
-    align-items: baseline;
-  }
-}
-
-.align-self {
-  &-stretch {
-    align-self: stretch;
-  }
-  &-start {
-    align-self: flex-start;
-  }
-  &-end {
-    align-self: flex-end;
-  }
-  &-center {
-    align-self: center;
-  }
-  &-baseline {
-    align-self: baseline;
+$gap-values: (
+  0: 0,
+  1: user.$spacer * 0.25,
+  2: user.$spacer * 0.5,
+  3: user.$spacer,
+  4: user.$spacer * 1.5,
+  5: user.$spacer * 3,
+);
+@each $key, $val in $gap-values {
+  .gap-#{$key} {
+    gap: $val;
   }
 }
