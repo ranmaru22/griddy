@@ -1,9 +1,5 @@
 .flex {
   display: flex;
-
-  & > * {
-    flex: 1;
-  }
 }
 
 .grid {
@@ -13,6 +9,9 @@
 
 .row {
   @extend .flex;
+  & > * {
+    flex: 1;
+  }
 }
 
 .col {
