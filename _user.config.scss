@@ -4,11 +4,13 @@
  * @use "griddy" with ($variable: <value>);
  */
 
-// Define the default breakpoints.
-$xl: 1280px !default;
-$lg: 1024px !default;
-$md: 768px !default;
-$sm: 640px !default;
+// Define the default breakpoints or add your own.
+$breakpoints: (
+  xl: 1280px,
+  lg: 1024px,
+  md: 768px,
+  sm: 640px,
+) !default;
 
 // Define the base value for spacing.
 $spacer: 1rem !default;
