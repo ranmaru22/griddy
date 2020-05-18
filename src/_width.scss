@@ -1,17 +1,33 @@
+@use "../user.config" as user;
+
+$width-values: (
+  0: 0,
+  1: user.$spacer,
+  2: user.$spacer * 2,
+  3: user.$spacer * 3,
+  4: user.$spacer * 4,
+  5: user.$spacer * 5,
+  100p: 100px,
+  200p: 200px,
+  300p: 300px,
+  400p: 400px,
+  500p: 500px,
+  100v: 100vw,
+  75v: 75vw,
+  50v: 50vw,
+  25v: 25vw,
+  10v: 10vw,
+  100: 100%,
+  75: 75%,
+  50: 50%,
+  25: 25%,
+  10: 10%,
+);
+
 .w {
-  &-100 {
-    width: 100%;
-  }
-  &-75 {
-    width: 75%;
-  }
-  &-50 {
-    width: 50%;
-  }
-  &-25 {
-    width: 25%;
-  }
-  &-10 {
-    width: 10%;
+  @each $key, $val in $width-values {
+    &-#{$key} {
+      width: $val;
+    }
   }
 }
