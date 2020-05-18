@@ -33,25 +33,9 @@
   }
 }
 
-.justify-self {
-  &-start {
-    justify-self: flex-start;
-  }
-  &-end {
-    justify-self: flex-end;
-  }
-  &-center {
-    justify-self: center;
-  }
-  &-around {
-    justify-self: space-around;
-  }
-  &-between {
-    justify-self: space-between;
-  }
-  &-evenly {
-    justify-self: space-evenly;
-  }
+.align-content {
+  // This class actually belongs to the grid module but is included her for brevity's sake.
+  @extend .justify;
 }
 
 .align-items {
@@ -72,6 +56,11 @@
   }
 }
 
+.justify-items {
+  // This class actually belongs to the grid module but is included her for brevity's sake.
+  @extend .align-items;
+}
+
 .align-self {
   &-stretch {
     align-self: stretch;
@@ -88,4 +77,9 @@
   &-baseline {
     align-self: baseline;
   }
+}
+
+.justify-self {
+  // This class actually belongs to the grid module but is included her for brevity's sake.
+  @extend .align-self;
 }
