@@ -3,7 +3,7 @@
 }
 
 .grid {
-  display: flex;
+  @extend .flex;
   flex-direction: column;
 }
 
