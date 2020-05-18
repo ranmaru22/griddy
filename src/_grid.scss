@@ -1,6 +1,6 @@
 @use "../user.config" as user;
 
-.grid {
+@mixin grid {
   display: grid;
 
   @for $i from 0 through 12 {
@@ -19,18 +19,62 @@
       }
     }
   }
-}
 
-.container {
-  max-width: 100%;
-  @each $key, $val in (xl: user.$xl, lg: user.$lg, md: user.$md, sm: user.$sm) {
-    &-#{$key} {
-      max-width: $val;
+  &-col-auto {
+    grid-column: auto;
+  }
+  &-col-from-auto {
+    grid-column-start: auto;
+  }
+  &-col-to-auto {
+    grid-column-end: auto;
+  }
+  &-row-auto {
+    grid-row: auto;
+  }
+  &-col-from-auto {
+    grid-row-start: auto;
+  }
+  &-col-to-auto {
+    grid-row-end: auto;
+  }
+
+  @for $i from 1 through 12 {
+    &-col-span-#{$i} {
+      grid-column: span $i / span $i;
     }
+    &-col-from-#{$i} {
+      grid-column-start: $i;
+    }
+    &-col-to-#{$i} {
+      grid-column-end: $i;
+    }
+    &-row-span-#{$i} {
+      grid-row: span $i / span $i;
+    }
+    &-row-from-#{$i} {
+      grid-row-start: $i;
+    }
+    &-row-to-#{$i} {
+      grid-row-end: $i;
+    }
+  }
+
+  &-flow-row {
+    grid-auto-flow: row;
+  }
+  &-flow-col {
+    grid-auto-flow: column;
+  }
+  &-flow-row-dense {
+    grid-auto-flow: row dense;
+  }
+  &-flow-col-dense {
+    grid-auto-flow: column dense;
   }
 }
 
-.order {
+@mixin order {
   @for $i from 1 through 12 {
     &-#{$i} {
       order: $i;
@@ -38,16 +82,53 @@
   }
 }
 
-$gap-values: (
-  0: 0,
-  1: user.$spacer * 0.25,
-  2: user.$spacer * 0.5,
-  3: user.$spacer,
-  4: user.$spacer * 1.5,
-  5: user.$spacer * 3,
-);
-@each $key, $val in $gap-values {
-  .gap-#{$key} {
-    gap: $val;
+@mixin gap {
+  $gap-values: (
+    0: 0,
+    1: user.$spacer * 0.25,
+    2: user.$spacer * 0.5,
+    3: user.$spacer,
+    4: user.$spacer * 1.5,
+    5: user.$spacer * 3,
+  );
+  @each $key, $val in $gap-values {
+    @at-root {
+      &-#{$key} {
+        gap: $val;
+      }
+    }
+  }
+}
+
+.grid {
+  @include grid();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:grid {
+    @media screen and (max-width: $breakpoint) {
+      @include grid();
+    }
+  }
+}
+
+.order {
+  @include order();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:order {
+    @media screen and (max-width: $breakpoint) {
+      @include order();
+    }
+  }
+}
+
+.gap {
+  @include gap();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:gap {
+    @media screen and (max-width: $breakpoint) {
+      @include gap();
+    }
   }
 }
