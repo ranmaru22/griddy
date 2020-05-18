@@ -1,24 +1,29 @@
 @use "color-names" as c;
 @use "../user.config" as user;
 
-.border {
+@mixin border($s: solid) {
   border-width: 1px;
-  border-style: solid;
+  border-style: $s;
+  border-color: black;
+}
+
+.border {
+  @include border();
 
   &-0 {
     border: none;
   }
 
   &-dashed {
-    border-style: dashed;
+    @include border($s: dashed);
   }
 
   &-dotted {
-    border-style: dotted;
+    @include border($s: dotted);
   }
 
   &-inset {
-    border-style: inset;
+    @include border($s: inset);
   }
 
   @for $i from 1 through 10 {
