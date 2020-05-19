@@ -1,33 +1,43 @@
 @use "../user.config" as user;
 
-$height-values: (
-  0: 0,
-  xs: user.$spacer,
-  sm: user.$spacer * 2,
-  md: user.$spacer * 3,
-  lg: user.$spacer * 4,
-  xl: user.$spacer * 5,
-  100p: 100px,
-  200p: 200px,
-  300p: 300px,
-  400p: 400px,
-  500p: 500px,
-  100v: 100vw,
-  75v: 75vw,
-  50v: 50vw,
-  25v: 25vw,
-  10v: 10vw,
-  100: 100%,
-  75: 75%,
-  50: 50%,
-  25: 25%,
-  10: 10%,
-);
-
-.h {
+@mixin height {
+  $height-values: (
+    0: 0,
+    xs: user.$spacer,
+    sm: user.$spacer * 2,
+    md: user.$spacer * 3,
+    lg: user.$spacer * 4,
+    xl: user.$spacer * 5,
+    100p: 100px,
+    200p: 200px,
+    300p: 300px,
+    400p: 400px,
+    500p: 500px,
+    100v: 100vw,
+    75v: 75vw,
+    50v: 50vw,
+    25v: 25vw,
+    10v: 10vw,
+    100: 100%,
+    75: 75%,
+    50: 50%,
+    25: 25%,
+    10: 10%,
+  );
   @each $key, $val in $height-values {
     &-#{$key} {
       height: $val;
+    }
+  }
+}
+
+.h {
+  @include height();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:h {
+    @media screen and (min-width: $breakpoint) {
+      @include height();
     }
   }
 }
