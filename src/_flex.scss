@@ -75,7 +75,7 @@
   @include justify-align-content("justify");
 }
 @each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:wrap {
+  .#{$label}\:justify-content {
     @media screen and (max-width: $breakpoint) {
       @include justify-align-content("justify");
     }
