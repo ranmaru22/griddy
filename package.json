@@ -1,0 +1,29 @@
+{
+  "name": "griddy",
+  "version": "1.0.0",
+  "description": "A low-level grid-based CSS framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranmaru22/griddy.git"
+  },
+  "keywords": [
+    "css",
+    "framework"
+  ],
+  "author": "Alex Sun",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ranmaru22/griddy/issues"
+  },
+  "homepage": "https://github.com/ranmaru22/griddy#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "purgecss": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-true": "^5.0.0"
+  }
+}
