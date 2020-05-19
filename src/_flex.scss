@@ -1,8 +1,6 @@
-.flex {
-  display: flex;
-}
+@use "../user.config" as user;
 
-.wrap {
+@mixin wrap {
   flex-wrap: wrap;
   &-0 {
     flex-wrap: nowrap;
@@ -12,60 +10,129 @@
   }
 }
 
-.justify {
+@mixin justify-align-content($prop) {
   &-start {
-    justify-content: flex-start;
+    #{$prop}-content: flex-start;
   }
   &-end {
-    justify-content: flex-end;
+    #{$prop}-content: flex-end;
   }
   &-center {
-    justify-content: center;
+    #{$prop}-content: center;
   }
   &-around {
-    justify-content: space-around;
+    #{$prop}-content: space-around;
   }
   &-between {
-    justify-content: space-between;
+    #{$prop}-content: space-between;
   }
   &-evenly {
-    justify-content: space-evenly;
+    #{$prop}-content: space-evenly;
+  }
+}
+
+@mixin justify-align-items($prop, $item: "items") {
+  &-stretch {
+    #{$prop}-#{$item}: stretch;
+  }
+  &-start {
+    #{$prop}-#{$item}: flex-start;
+  }
+  &-end {
+    #{$prop}-#{$item}: flex-end;
+  }
+  &-center {
+    #{$prop}-#{$item}: center;
+  }
+  &-baseline {
+    #{$prop}-#{$item}: baseline;
+  }
+}
+
+.flex {
+  display: flex;
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:flex {
+    @media screen and (max-width: $breakpoint) {
+      display: flex;
+    }
+  }
+}
+
+.wrap {
+  @include wrap();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:wrap {
+    @media screen and (max-width: $breakpoint) {
+      @include wrap();
+    }
+  }
+}
+
+.justify-content {
+  @include justify-align-content("justify");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:wrap {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-content("justify");
+    }
   }
 }
 
 .align-content {
-  // This class actually belongs to the grid module but is included her for brevity's sake.
-  @extend .justify;
+  @include justify-align-content("align");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:align-content {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-content("align");
+    }
+  }
 }
 
 .align-items {
-  &-stretch {
-    align-items: stretch;
-  }
-  &-start {
-    align-items: flex-start;
-  }
-  &-end {
-    align-items: flex-end;
-  }
-  &-center {
-    align-items: center;
-  }
-  &-baseline {
-    align-items: baseline;
+  @include justify-align-items("align");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:align-items {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-items("align");
+    }
   }
 }
 
 .justify-items {
-  // This class actually belongs to the grid module but is included her for brevity's sake.
-  @extend .align-items;
+  @include justify-align-items("justify");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:justify-items {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-items("justify");
+    }
+  }
 }
 
 .align-self {
-  @extend .align-items;
+  @include justify-align-items("align", "self");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:align-self {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-items("align", "self");
+    }
+  }
 }
 
 .justify-self {
-  // This class actually belongs to the grid module but is included her for brevity's sake.
-  @extend .align-items;
+  @include justify-align-items("justify", "self");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:justify-self {
+    @media screen and (max-width: $breakpoint) {
+      @include justify-align-items("justify", "self");
+    }
+  }
 }
