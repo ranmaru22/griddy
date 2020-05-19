@@ -1,0 +1,16 @@
+@use "../../src/width" as *;
+
+@include describe("Width module") {
+  @include it("sets the with classes") {
+    @include assert {
+      @include output {
+        @include width;
+      }
+      @include contains {
+        &-75v {
+          width: 75vw;
+        }
+      }
+    }
+  }
+}
