@@ -1,0 +1,26 @@
+@use "../../src/container" as *;
+@use "../../user.config" as user;
+
+@include describe("Container module") {
+  @include it("sets all the container classes") {
+    @include assert {
+      @include output {
+        @include container;
+      }
+      @include contains {
+        &-sm {
+          max-width: map-get(user.$breakpoints, "sm");
+        }
+        &-md {
+          max-width: map-get(user.$breakpoints, "md");
+        }
+        &-lg {
+          max-width: map-get(user.$breakpoints, "lg");
+        }
+        &-xl {
+          max-width: map-get(user.$breakpoints, "xl");
+        }
+      }
+    }
+  }
+}
