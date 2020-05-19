@@ -14,7 +14,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:container {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include container();
     }
   }

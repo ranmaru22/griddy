@@ -90,7 +90,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:bg {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include bg();
     }
   }
@@ -101,7 +101,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:hover\:bg {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include hover-bg();
     }
   }
@@ -112,7 +112,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:active\:bg {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include active-bg();
     }
   }
@@ -123,7 +123,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:text {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include text();
     }
   }
@@ -134,7 +134,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:hover\:text {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include hover-text();
     }
   }
@@ -145,7 +145,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:active\:text {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include active-text();
     }
   }

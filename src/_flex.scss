@@ -54,7 +54,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:flex {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       display: flex;
     }
   }
@@ -65,7 +65,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:wrap {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include wrap();
     }
   }
@@ -76,7 +76,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:justify-content {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-content("justify");
     }
   }
@@ -87,7 +87,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:align-content {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-content("align");
     }
   }
@@ -98,7 +98,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:align-items {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-items("align");
     }
   }
@@ -109,7 +109,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:justify-items {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-items("justify");
     }
   }
@@ -120,7 +120,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:align-self {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-items("align", "self");
     }
   }
@@ -131,7 +131,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:justify-self {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include justify-align-items("justify", "self");
     }
   }

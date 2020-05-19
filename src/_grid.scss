@@ -105,7 +105,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:grid {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include grid();
     }
   }
@@ -116,7 +116,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:order {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include order();
     }
   }
@@ -127,7 +127,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:gap {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       @include gap();
     }
   }

@@ -56,7 +56,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:rounded {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       border-radius: 0.5rem;
     }
   }
@@ -67,7 +67,7 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:rounder {
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (min-width: $breakpoint) {
       border-radius: 1rem;
     }
   }
@@ -78,8 +78,8 @@
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:circled {
-    @media screen and (max-width: $breakpoint) {
-      border-radius: 100%;
+    @media screen and (min-width: $breakpoint) {
+      @include border();
     }
   }
 }
