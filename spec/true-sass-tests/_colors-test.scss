@@ -1,0 +1,82 @@
+@use "../../src/colors" as *;
+
+@include describe("Colors module") {
+  @include it("sets the bg color classes") {
+    @include assert("standard bg classes") {
+      @include output {
+        @include bg();
+      }
+      @include contains {
+        &-black {
+          background-color: black;
+        }
+      }
+    }
+    @include assert("hover:bg classes") {
+      @include output {
+        @include hover-bg();
+      }
+      @include contains {
+        &-yellow:hover {
+          background-color: yellow;
+        }
+      }
+    }
+    @include assert("active:bg classes") {
+      @include output {
+        @include active-bg();
+      }
+      @include contains {
+        &-aquamarine:active {
+          background-color: aquamarine;
+        }
+      }
+    }
+  }
+
+  @include it("sets the text color classes") {
+    @include assert("standard text classes") {
+      @include output {
+        @include text();
+      }
+      @include contains {
+        &-mistyrose {
+          color: mistyrose;
+        }
+      }
+    }
+    @include assert("hover:text classes") {
+      @include output {
+        @include hover-text();
+      }
+      @include contains {
+        &-palevioletred:hover {
+          color: palevioletred;
+        }
+      }
+    }
+    @include assert("active:text classes") {
+      @include output {
+        @include active-text();
+      }
+      @include contains {
+        &-rosybrown:active {
+          color: rosybrown;
+        }
+      }
+    }
+  }
+
+  @include it("works with custom colors") {
+    @include assert {
+      @include output {
+        @include text();
+      }
+      @include contains {
+        &-konpeki {
+          color: rgb(52, 108, 202);
+        }
+      }
+    }
+  }
+}

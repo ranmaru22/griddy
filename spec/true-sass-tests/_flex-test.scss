@@ -1,0 +1,98 @@
+@use "../../src/flex" as *;
+
+@include describe("Flex module") {
+  @include it("sets the wrap class") {
+    @include assert {
+      @include output {
+        @include wrap;
+      }
+      @include expect {
+        flex-wrap: wrap;
+        &-0 {
+          flex-wrap: nowrap;
+        }
+        &-reverse {
+          flex-wrap: wrap-reverse;
+        }
+      }
+    }
+  }
+
+  @include it("sets the justify-content class") {
+    @include assert {
+      @include output {
+        @include justify-align-content("justify");
+      }
+      @include contains {
+        &-around {
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+
+  @include it("sets the align-content class") {
+    @include assert {
+      @include output {
+        @include justify-align-content("align");
+      }
+      @include contains {
+        &-between {
+          align-content: space-between;
+        }
+      }
+    }
+  }
+
+  @include it("sets the justify-items class") {
+    @include assert {
+      @include output {
+        @include justify-align-items("justify");
+      }
+      @include contains {
+        &-stretch {
+          justify-items: stretch;
+        }
+      }
+    }
+  }
+
+  @include it("sets the justify-self class") {
+    @include assert {
+      @include output {
+        @include justify-align-items("justify", "self");
+      }
+      @include contains {
+        &-start {
+          justify-self: flex-start;
+        }
+      }
+    }
+  }
+
+  @include it("sets the align-items class") {
+    @include assert {
+      @include output {
+        @include justify-align-items("align");
+      }
+      @include contains {
+        &-baseline {
+          align-items: baseline;
+        }
+      }
+    }
+  }
+
+  @include it("sets the align-self class") {
+    @include assert {
+      @include output {
+        @include justify-align-items("align", "self");
+      }
+      @include contains {
+        &-end {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}
