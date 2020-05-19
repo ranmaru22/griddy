@@ -1,68 +1,110 @@
 @use "../user.config" as user;
 
-$padding-values: (
-  0: 0,
-  1: user.$spacer * 0.25,
-  2: user.$spacer * 0.5,
-  3: user.$spacer,
-  4: user.$spacer * 1.5,
-  5: user.$spacer * 3,
-);
-
-.p {
+@mixin padding($dimension) {
+  $padding-values: (
+    0: 0,
+    1: user.$spacer * 0.25,
+    2: user.$spacer * 0.5,
+    3: user.$spacer,
+    4: user.$spacer * 1.5,
+    5: user.$spacer * 3,
+  );
   @each $key, $val in $padding-values {
     &-#{$key} {
-      padding: $val;
+      @if $dimension == "all" {
+        padding: $val;
+      } @else if $dimension == "x" {
+        padding-left: $val;
+        padding-right: $val;
+      } @else if $dimension == "y" {
+        padding-top: $val;
+        padding-bottom: $val;
+      } @else if $dimension == "t" {
+        padding-top: $val;
+      } @else if $dimension == "r" {
+        padding-right: $val;
+      } @else if $dimension == "b" {
+        padding-bottom: $val;
+      } @else if $dimension == "l" {
+        padding-left: $val;
+      }
+    }
+  }
+}
+
+.p {
+  @include padding("all");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:p {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("all");
     }
   }
 }
 
 .px {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-left: $val;
-      padding-right: $val;
+  @include padding("x");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:px {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("x");
     }
   }
 }
 
 .py {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-top: $val;
-      padding-bottom: $val;
+  @include padding("y");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:py {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("y");
     }
   }
 }
 
 .pt {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-top: $val;
-    }
-  }
+  @include padding("t");
 }
-
-.pb {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-bottom: $val;
-    }
-  }
-}
-
-.pl {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-left: $val;
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:pt {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("t");
     }
   }
 }
 
 .pr {
-  @each $key, $val in $padding-values {
-    &-#{$key} {
-      padding-right: $val;
+  @include padding("r");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:pr {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("r");
+    }
+  }
+}
+
+.pb {
+  @include padding("b");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:pb {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("b");
+    }
+  }
+}
+
+.pl {
+  @include padding("l");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:pl {
+    @media screen and (min-width: $breakpoint) {
+      @include padding("l");
     }
   }
 }

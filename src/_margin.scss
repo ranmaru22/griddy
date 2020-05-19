@@ -1,69 +1,111 @@
 @use "../user.config" as user;
 
-$margin-values: (
-  0: 0,
-  1: user.$spacer * 0.25,
-  2: user.$spacer * 0.5,
-  3: user.$spacer,
-  4: user.$spacer * 1.5,
-  5: user.$spacer * 3,
-  auto: auto,
-);
-
-.m {
+@mixin margin($dimension) {
+  $margin-values: (
+    0: 0,
+    1: user.$spacer * 0.25,
+    2: user.$spacer * 0.5,
+    3: user.$spacer,
+    4: user.$spacer * 1.5,
+    5: user.$spacer * 3,
+    auto: auto,
+  );
   @each $key, $val in $margin-values {
     &-#{$key} {
-      margin: $val;
+      @if $dimension == "all" {
+        margin: $val;
+      } @else if $dimension == "x" {
+        margin-left: $val;
+        margin-right: $val;
+      } @else if $dimension == "y" {
+        margin-top: $val;
+        margin-bottom: $val;
+      } @else if $dimension == "t" {
+        margin-top: $val;
+      } @else if $dimension == "r" {
+        margin-right: $val;
+      } @else if $dimension == "b" {
+        margin-bottom: $val;
+      } @else if $dimension == "l" {
+        margin-left: $val;
+      }
+    }
+  }
+}
+
+.m {
+  @include margin("all");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:m {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("all");
     }
   }
 }
 
 .mx {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-left: $val;
-      margin-right: $val;
+  @include margin("x");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:mx {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("x");
     }
   }
 }
 
 .my {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-top: $val;
-      margin-bottom: $val;
+  @include margin("y");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:my {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("y");
     }
   }
 }
 
 .mt {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-top: $val;
-    }
-  }
+  @include margin("t");
 }
-
-.mb {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-bottom: $val;
-    }
-  }
-}
-
-.ml {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-left: $val;
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:mt {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("t");
     }
   }
 }
 
 .mr {
-  @each $key, $val in $margin-values {
-    &-#{$key} {
-      margin-right: $val;
+  @include margin("r");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:mr {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("r");
+    }
+  }
+}
+
+.mb {
+  @include margin("b");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:mb {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("b");
+    }
+  }
+}
+
+.ml {
+  @include margin("l");
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:ml {
+    @media screen and (min-width: $breakpoint) {
+      @include margin("l");
     }
   }
 }
