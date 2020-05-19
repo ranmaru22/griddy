@@ -6,10 +6,10 @@
 
 // Define the default breakpoints or add your own.
 $breakpoints: (
-  xl: 1280px,
-  lg: 1024px,
-  md: 768px,
   sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
 ) !default;
 
 // Define the base value for spacing.
