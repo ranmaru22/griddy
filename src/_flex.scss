@@ -82,6 +82,8 @@
   }
 }
 
+// This align-content classes actually belong to the grid module.
+// They are included here for brevity's sake.
 .align-content {
   @include justify-align-content("align");
 }
@@ -104,6 +106,8 @@
   }
 }
 
+// This justify-items classes actually belong to the grid module.
+// They are included here for brevity's sake.
 .justify-items {
   @include justify-align-items("justify");
 }
@@ -126,6 +130,8 @@
   }
 }
 
+// This justify-self classes actually belong to the grid module.
+// They are included here for brevity's sake.
 .justify-self {
   @include justify-align-items("justify", "self");
 }
