@@ -16,5 +16,6 @@ $breakpoints: (
 $spacer: 1rem !default;
 
 // Define your own custom colors by adding them to the map.
-// e.g. "coolcustomcolor": #123456
-$custom-colors: () !default;
+$custom-colors: (
+  "konpeki": rgb(52, 108, 202),
+) !default;
