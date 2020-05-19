@@ -1,0 +1,79 @@
+@use "../../src/padding" as *;
+@use "../../user.config" as user;
+
+@include describe("Padding module") {
+  @include it("sets the padding classes") {
+    @include assert {
+      @include output {
+        @include padding("all");
+      }
+      @include contains {
+        &-3 {
+          padding: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("x");
+      }
+      @include contains {
+        &-3 {
+          padding-left: user.$spacer;
+          padding-right: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("y");
+      }
+      @include contains {
+        &-3 {
+          padding-top: user.$spacer;
+          padding-bottom: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("t");
+      }
+      @include contains {
+        &-3 {
+          padding-top: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("r");
+      }
+      @include contains {
+        &-3 {
+          padding-right: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("b");
+      }
+      @include contains {
+        &-3 {
+          padding-bottom: user.$spacer;
+        }
+      }
+    }
+    @include assert {
+      @include output {
+        @include padding("l");
+      }
+      @include contains {
+        &-3 {
+          padding-left: user.$spacer;
+        }
+      }
+    }
+  }
+}
