@@ -3,6 +3,7 @@
 @use "src/grid";
 @use "src/flex";
 @use "src/container";
+@use "src/overflow";
 
 @use "src/width";
 @use "src/height";
@@ -15,4 +16,4 @@
 
 @use "src/border";
 
-@use "src/utilities";
+@use "src/form-utils";
