@@ -1,0 +1,63 @@
+@use "../../src/utilities" as utils;
+@use "../../user.config" as user;
+
+@include describe("add-pseudo-classes mixin") {
+  @include it("sets the selectors correctly") {
+    @include assert {
+      @include output {
+        @include utils.add-pseudo-classes(&, "hover") {
+          color: mistyrose;
+        }
+      }
+      @include contains {
+        & {
+          color: mistyrose;
+        }
+        @at-root .hover\:test-output:hover {
+          color: mistyrose;
+        }
+      }
+    }
+  }
+}
+
+@include describe("add-breakpoints mixin") {
+  @include it("sets the selectors correctly") {
+    @include assert {
+      @include output {
+        @include utils.add-breakpoints(&) {
+          margin: 0;
+        }
+      }
+      @include contains {
+        & {
+          margin: 0;
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "sm")) {
+          @at-root .sm\:test-output {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include describe("add-pseudo-classes-with-breakpoints mixin") {
+  @include it("sets the selectors correctly") {
+    @include assert {
+      @include output {
+        @include utils.add-pseudo-classes-with-breakpoints(&, "active") {
+          border: 1px solid blue;
+        }
+      }
+      @include contains {
+        @media screen and (min-width: map-get(user.$breakpoints, "lg")) {
+          @at-root .lg\:active\:test-output:active {
+            border: 1px solid blue;
+          }
+        }
+      }
+    }
+  }
+}
