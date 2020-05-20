@@ -1,6 +1,6 @@
 /*
  * This file is meant to extend the functionality of griddy.
- * To override a default:
+ * To override a default edit this file or do:
  * @use "griddy" with ($variable: <value>);
  */
 
@@ -16,6 +16,5 @@ $breakpoints: (
 $spacer: 1rem !default;
 
 // Define your own custom colors by adding them to the map.
-$custom-colors: (
-  "konpeki": rgb(52, 108, 202),
-) !default;
+// "konpeki": rgb(52, 108, 202),
+$custom-colors: () !default;
