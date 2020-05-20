@@ -1,4 +1,5 @@
 @use "../user.config" as user;
+@use "utilities" as utils;
 
 @mixin grid {
   display: grid;
@@ -101,34 +102,19 @@
 }
 
 .grid {
-  @include grid();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:grid {
-    @media screen and (min-width: $breakpoint) {
-      @include grid();
-    }
+  @include utils.add-breakpoints(&) {
+    @include grid();
   }
 }
 
 .order {
-  @include order();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:order {
-    @media screen and (min-width: $breakpoint) {
-      @include order();
-    }
+  @include utils.add-breakpoints(&) {
+    @include order();
   }
 }
 
 .gap {
-  @include gap();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:gap {
-    @media screen and (min-width: $breakpoint) {
-      @include gap();
-    }
+  @include utils.add-breakpoints(&) {
+    @include gap();
   }
 }
