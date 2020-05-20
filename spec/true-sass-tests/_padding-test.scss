@@ -1,7 +1,7 @@
 @use "../../src/padding" as *;
 @use "../../user.config" as user;
 
-@include describe("Padding module") {
+@include describe("Padding mixin") {
   @include it("sets the padding classes") {
     @include assert {
       @include output {

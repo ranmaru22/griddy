@@ -1,7 +1,7 @@
 @use "../../src/margin" as *;
 @use "../../user.config" as user;
 
-@include describe("Margin module") {
+@include describe("Margin mixin") {
   @include it("sets the margin classes") {
     @include assert {
       @include output {
