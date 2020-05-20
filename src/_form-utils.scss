@@ -1,16 +1,9 @@
-@use "../user.config" as user;
+@use "utilities" as utils;
 
 .no-focus {
-  &:focus {
-    outline: 0;
-  }
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:no-focus {
-    @media screen and (min-width: $breakpoint) {
-      &:focus {
-        outline: 0;
-      }
+  @include utils.add-breakpoints(&) {
+    &:focus {
+      outline: 0;
     }
   }
 }
