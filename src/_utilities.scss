@@ -1,36 +1,28 @@
+/*
+ * This file contains utility functions that can be imported and used in
+ * other modules.
+ */
+
 @use "../user.config" as user;
+@use "sass:selector";
+@use "sass:string";
+@use "sass:list";
 
-// To control overflow.
-@mixin overflow {
-  @each $val in ("auto", "visible", "hidden", "clip", "scroll") {
-    &-#{$val} {
-      overflow: $val;
+@mixin add-pseudo-classes($selector, $classes...) {
+  // Adds pseudo classes dynamically to a given selector.
+  @content;
+  @each $class in $classes {
+    @at-root .#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
+      @content;
     }
   }
-}
-
-.overflow {
-  @include overflow();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:overflow {
-    @media screen and (min-width: $breakpoint) {
-      @include overflow();
+  @each $label, $breakpoint in user.$breakpoints {
+    @at-root .#{$label}\:#{&} {
+      @content;
     }
-  }
-}
-
-// To remove the focus border from form elements.
-.no-focus {
-  &:focus {
-    outline: 0;
-  }
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:no-focus {
-    @media screen and (min-width: $breakpoint) {
-      &:focus {
-        outline: 0;
+    @each $class in $classes {
+      @at-root .#{$label}\:#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
+        @content;
       }
     }
   }
