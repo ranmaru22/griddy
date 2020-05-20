@@ -1,4 +1,5 @@
 @use "../user.config" as user;
+@use "utilities" as utils;
 
 @mixin padding($dimension) {
   $padding-values: (
@@ -33,78 +34,43 @@
 }
 
 .p {
-  @include padding("all");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:p {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("all");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("all");
   }
 }
 
 .px {
-  @include padding("x");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:px {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("x");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("x");
   }
 }
 
 .py {
-  @include padding("y");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:py {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("y");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("y");
   }
 }
 
 .pt {
-  @include padding("t");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:pt {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("t");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("t");
   }
 }
 
 .pr {
-  @include padding("r");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:pr {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("r");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("r");
   }
 }
 
 .pb {
-  @include padding("b");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:pb {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("b");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("b");
   }
 }
 
 .pl {
-  @include padding("l");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:pl {
-    @media screen and (min-width: $breakpoint) {
-      @include padding("l");
-    }
+  @include utils.add-breakpoints(&) {
+    @include padding("l");
   }
 }

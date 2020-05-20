@@ -1,4 +1,5 @@
 @use "../user.config" as user;
+@use "utilities" as utils;
 
 @mixin margin($dimension) {
   $margin-values: (
@@ -34,78 +35,43 @@
 }
 
 .m {
-  @include margin("all");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:m {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("all");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("all");
   }
 }
 
 .mx {
-  @include margin("x");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:mx {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("x");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("x");
   }
 }
 
 .my {
-  @include margin("y");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:my {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("y");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("y");
   }
 }
 
 .mt {
-  @include margin("t");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:mt {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("t");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("t");
   }
 }
 
 .mr {
-  @include margin("r");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:mr {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("r");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("r");
   }
 }
 
 .mb {
-  @include margin("b");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:mb {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("b");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("b");
   }
 }
 
 .ml {
-  @include margin("l");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:ml {
-    @media screen and (min-width: $breakpoint) {
-      @include margin("l");
-    }
+  @include utils.add-breakpoints(&) {
+    @include margin("l");
   }
 }
