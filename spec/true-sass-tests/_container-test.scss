@@ -1,13 +1,16 @@
 @use "../../src/container" as *;
 @use "../../user.config" as user;
 
-@include describe("Container module") {
-  @include it("sets all the container classes") {
+@include describe("Container mixin") {
+  @include it("sets all the base container classes") {
     @include assert {
       @include output {
         @include container;
       }
-      @include contains {
+      @include expect {
+        & {
+          max-width: 100%;
+        }
         &-sm {
           max-width: map-get(user.$breakpoints, "sm");
         }
