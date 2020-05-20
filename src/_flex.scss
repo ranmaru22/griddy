@@ -1,14 +1,5 @@
 @use "../user.config" as user;
-
-@mixin wrap {
-  flex-wrap: wrap;
-  &-0 {
-    flex-wrap: nowrap;
-  }
-  &-reverse {
-    flex-wrap: wrap-reverse;
-  }
-}
+@use "utilities" as utils;
 
 @mixin justify-align-content($prop) {
   &-start {
@@ -50,95 +41,61 @@
 }
 
 .flex {
-  display: flex;
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:flex {
-    @media screen and (min-width: $breakpoint) {
-      display: flex;
-    }
+  @include utils.add-breakpoints(&) {
+    display: flex;
   }
 }
 
 .wrap {
-  @include wrap();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:wrap {
-    @media screen and (min-width: $breakpoint) {
-      @include wrap();
+  @include utils.add-breakpoints(&) {
+    flex-wrap: wrap;
+    &-0 {
+      flex-wrap: nowrap;
+    }
+    &-reverse {
+      flex-wrap: wrap-reverse;
     }
   }
 }
 
 .justify-content {
-  @include justify-align-content("justify");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:justify-content {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-content("justify");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-content("justify");
   }
 }
 
 // This align-content classes actually belong to the grid module.
 // They are included here for brevity's sake.
 .align-content {
-  @include justify-align-content("align");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:align-content {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-content("align");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-content("align");
   }
 }
 
 .align-items {
-  @include justify-align-items("align");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:align-items {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-items("align");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-items("align");
   }
 }
 
 // This justify-items classes actually belong to the grid module.
 // They are included here for brevity's sake.
 .justify-items {
-  @include justify-align-items("justify");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:justify-items {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-items("justify");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-items("justify");
   }
 }
 
 .align-self {
-  @include justify-align-items("align", "self");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:align-self {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-items("align", "self");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-items("align", "self");
   }
 }
 
 // This justify-self classes actually belong to the grid module.
 // They are included here for brevity's sake.
 .justify-self {
-  @include justify-align-items("justify", "self");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:justify-self {
-    @media screen and (min-width: $breakpoint) {
-      @include justify-align-items("justify", "self");
-    }
+  @include utils.add-breakpoints(&) {
+    @include justify-align-items("justify", "self");
   }
 }
