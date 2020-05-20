@@ -1,0 +1,21 @@
+@use "../user.config" as user;
+@use "pseudo-classes" as p;
+
+@mixin overflow {
+  @each $val in ("auto", "visible", "hidden", "clip", "scroll") {
+    &-#{$val} {
+      overflow: $val;
+    }
+  }
+}
+
+.overflow {
+  @include overflow();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:overflow {
+    @media screen and (min-width: $breakpoint) {
+      @include overflow();
+    }
+  }
+}
