@@ -40,6 +40,26 @@
   }
 }
 
+@mixin radius {
+  border-radius: 0.5rem;
+
+  &-sm {
+    border-radius: 0.125rem;
+  }
+  &-md {
+    border-radius: 0.25rem;
+  }
+  &-lg {
+    border-radius: 0.75rem;
+  }
+  &-xl {
+    border-radius: 1rem;
+  }
+  &-circle {
+    border-radius: 9999px;
+  }
+}
+
 .border {
   @include border();
 }
@@ -52,34 +72,12 @@
 }
 
 .rounded {
-  border-radius: 0.5rem;
+  @include radius();
 }
 @each $label, $breakpoint in user.$breakpoints {
   .#{$label}\:rounded {
     @media screen and (min-width: $breakpoint) {
-      border-radius: 0.5rem;
-    }
-  }
-}
-
-.rounder {
-  border-radius: 1rem;
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:rounder {
-    @media screen and (min-width: $breakpoint) {
-      border-radius: 1rem;
-    }
-  }
-}
-
-.circled {
-  border-radius: 100%;
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:circled {
-    @media screen and (min-width: $breakpoint) {
-      @include border();
+      @include radius();
     }
   }
 }
