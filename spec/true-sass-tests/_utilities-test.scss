@@ -19,6 +19,23 @@
       }
     }
   }
+  @include it("works with built-in selectors too") {
+    @include assert {
+      @include output {
+        @include utils.add-pseudo-classes(div, "hover") {
+          color: mistyrose;
+        }
+      }
+      @include expect {
+        & {
+          color: mistyrose;
+        }
+        @at-root .hover\:div:hover {
+          color: mistyrose;
+        }
+      }
+    }
+  }
 }
 
 @include describe("add-breakpoints mixin") {
@@ -50,6 +67,41 @@
         }
         @media screen and (min-width: map-get(user.$breakpoints, "xl")) {
           @at-root .xl\:test-output {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include it("works with built-in selectors too") {
+    @include assert {
+      @include output {
+        @include utils.add-breakpoints(div) {
+          margin: 0;
+        }
+      }
+      @include expect {
+        & {
+          margin: 0;
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "sm")) {
+          @at-root .sm\:div {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "md")) {
+          @at-root .md\:div {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "lg")) {
+          @at-root .lg\:div {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "xl")) {
+          @at-root .xl\:div {
             margin: 0;
           }
         }
@@ -102,6 +154,56 @@
             border: 1px solid blue;
           }
           @at-root .xl\:active\:test-output:active {
+            border: 1px solid blue;
+          }
+        }
+      }
+    }
+  }
+
+  @include it("works with built-in selectors too") {
+    @include assert {
+      @include output {
+        @include utils.add-pseudo-classes-with-breakpoints(div, "active") {
+          border: 1px solid blue;
+        }
+      }
+      @include expect {
+        & {
+          border: 1px solid blue;
+        }
+        @at-root .active\:div:active {
+          border: 1px solid blue;
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "sm")) {
+          @at-root .sm\:div {
+            border: 1px solid blue;
+          }
+          @at-root .sm\:active\:div:active {
+            border: 1px solid blue;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "md")) {
+          @at-root .md\:div {
+            border: 1px solid blue;
+          }
+          @at-root .md\:active\:div:active {
+            border: 1px solid blue;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "lg")) {
+          @at-root .lg\:div {
+            border: 1px solid blue;
+          }
+          @at-root .lg\:active\:div:active {
+            border: 1px solid blue;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "xl")) {
+          @at-root .xl\:div {
+            border: 1px solid blue;
+          }
+          @at-root .xl\:active\:div:active {
             border: 1px solid blue;
           }
         }
