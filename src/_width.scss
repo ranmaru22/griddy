@@ -1,6 +1,7 @@
 @use "../user.config" as user;
+@use "utilities" as utils;
 
-@mixin width {
+.w {
   $width-values: (
     0: 0,
     xs: user.$spacer,
@@ -26,18 +27,15 @@
   );
   @each $key, $val in $width-values {
     &-#{$key} {
-      width: $val;
-    }
-  }
-}
-
-.w {
-  @include width();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:w {
-    @media screen and (min-width: $breakpoint) {
-      @include width();
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "focus",
+        "disabled"
+      ) {
+        width: $val;
+      }
     }
   }
 }
