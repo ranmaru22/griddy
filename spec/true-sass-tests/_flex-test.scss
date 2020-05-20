@@ -1,31 +1,29 @@
 @use "../../src/flex" as *;
 
-@include describe("Flex module") {
-  @include it("sets the wrap class") {
-    @include assert {
-      @include output {
-        @include wrap;
-      }
-      @include expect {
-        flex-wrap: wrap;
-        &-0 {
-          flex-wrap: nowrap;
-        }
-        &-reverse {
-          flex-wrap: wrap-reverse;
-        }
-      }
-    }
-  }
-
+@include describe("justify-align-content mixin") {
   @include it("sets the justify-content class") {
     @include assert {
       @include output {
         @include justify-align-content("justify");
       }
-      @include contains {
+      @include expect {
+        &-start {
+          justify-content: flex-start;
+        }
+        &-end {
+          justify-content: flex-end;
+        }
+        &-center {
+          justify-content: center;
+        }
         &-around {
           justify-content: space-around;
+        }
+        &-between {
+          justify-content: space-between;
+        }
+        &-evenly {
+          justify-content: space-evenly;
         }
       }
     }
@@ -36,35 +34,64 @@
       @include output {
         @include justify-align-content("align");
       }
-      @include contains {
+      @include expect {
+        &-start {
+          align-content: flex-start;
+        }
+        &-end {
+          align-content: flex-end;
+        }
+        &-center {
+          align-content: center;
+        }
+        &-around {
+          align-content: space-around;
+        }
         &-between {
           align-content: space-between;
+        }
+        &-evenly {
+          align-content: space-evenly;
         }
       }
     }
   }
 
+  @include it("theoretically works with any input") {
+    @include assert {
+      @include output {
+        @include justify-align-content("foobar");
+      }
+      @include contains {
+        &-start {
+          foobar-content: flex-start;
+        }
+      }
+    }
+  }
+}
+
+@include describe("justify-align-items mixin") {
   @include it("sets the justify-items class") {
     @include assert {
       @include output {
         @include justify-align-items("justify");
       }
-      @include contains {
+      @include expect {
         &-stretch {
           justify-items: stretch;
         }
-      }
-    }
-  }
-
-  @include it("sets the justify-self class") {
-    @include assert {
-      @include output {
-        @include justify-align-items("justify", "self");
-      }
-      @include contains {
         &-start {
-          justify-self: flex-start;
+          justify-items: flex-start;
+        }
+        &-end {
+          justify-items: flex-end;
+        }
+        &-center {
+          justify-items: center;
+        }
+        &-baseline {
+          justify-items: baseline;
         }
       }
     }
@@ -75,9 +102,46 @@
       @include output {
         @include justify-align-items("align");
       }
-      @include contains {
+      @include expect {
+        &-stretch {
+          align-items: stretch;
+        }
+        &-start {
+          align-items: flex-start;
+        }
+        &-end {
+          align-items: flex-end;
+        }
+        &-center {
+          align-items: center;
+        }
         &-baseline {
           align-items: baseline;
+        }
+      }
+    }
+  }
+
+  @include it("sets the justify-self class") {
+    @include assert {
+      @include output {
+        @include justify-align-items("justify", "self");
+      }
+      @include expect {
+        &-stretch {
+          justify-self: stretch;
+        }
+        &-start {
+          justify-self: flex-start;
+        }
+        &-end {
+          justify-self: flex-end;
+        }
+        &-center {
+          justify-self: center;
+        }
+        &-baseline {
+          justify-self: baseline;
         }
       }
     }
@@ -88,9 +152,34 @@
       @include output {
         @include justify-align-items("align", "self");
       }
-      @include contains {
+      @include expect {
+        &-stretch {
+          align-self: stretch;
+        }
+        &-start {
+          align-self: flex-start;
+        }
         &-end {
           align-self: flex-end;
+        }
+        &-center {
+          align-self: center;
+        }
+        &-baseline {
+          align-self: baseline;
+        }
+      }
+    }
+  }
+
+  @include it("theoretically works with any values") {
+    @include assert {
+      @include output {
+        @include justify-align-items("foo", "bar");
+      }
+      @include contains {
+        &-stretch {
+          foo-bar: stretch;
         }
       }
     }
