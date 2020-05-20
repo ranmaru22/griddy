@@ -1,152 +1,65 @@
-@use "color-names" as c;
 @use "../user.config" as user;
-
-@mixin bg {
-  @each $color in c.$colors {
-    &-#{"" + $color} {
-      background-color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name} {
-      background-color: $val;
-    }
-  }
-}
-
-@mixin hover-bg {
-  @each $color in c.$colors {
-    &-#{"" + $color}:hover {
-      background-color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:hover {
-      background-color: $val;
-    }
-  }
-}
-
-@mixin active-bg {
-  @each $color in c.$colors {
-    &-#{"" + $color}:active {
-      background-color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:active {
-      background-color: $val;
-    }
-  }
-}
-
-@mixin text {
-  @each $color in c.$colors {
-    &-#{"" + $color} {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name} {
-      color: $val;
-    }
-  }
-}
-
-@mixin hover-text {
-  @each $color in c.$colors {
-    &-#{"" + $color}:hover {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:hover {
-      color: $val;
-    }
-  }
-}
-
-@mixin active-text {
-  @each $color in c.$colors {
-    &-#{"" + $color}:active {
-      color: $color;
-    }
-  }
-
-  @each $name, $val in user.$custom-colors {
-    &-#{$name}:active {
-      color: $val;
-    }
-  }
-}
+@use "utilities" as utils;
+@use "color-names" as c;
 
 .bg {
-  @include bg();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:bg {
-    @media screen and (min-width: $breakpoint) {
-      @include bg();
+  @each $color in c.$colors {
+    &-#{"" + $color} {
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        background-color: $color;
+      }
     }
   }
-}
-
-.hover\:bg {
-  @include hover-bg();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:hover\:bg {
-    @media screen and (min-width: $breakpoint) {
-      @include hover-bg();
-    }
-  }
-}
-
-.active\:bg {
-  @include active-bg();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:active\:bg {
-    @media screen and (min-width: $breakpoint) {
-      @include active-bg();
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        background-color: $val;
+      }
     }
   }
 }
 
 .text {
-  @include text();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:text {
-    @media screen and (min-width: $breakpoint) {
-      @include text();
+  @each $color in c.$colors {
+    &-#{"" + $color} {
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        color: $color;
+      }
     }
   }
-}
-
-.hover\:text {
-  @include hover-text();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:hover\:text {
-    @media screen and (min-width: $breakpoint) {
-      @include hover-text();
-    }
-  }
-}
-
-.active\:text {
-  @include active-text();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:active\:text {
-    @media screen and (min-width: $breakpoint) {
-      @include active-text();
+  @each $name, $val in user.$custom-colors {
+    &-#{$name} {
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        color: $val;
+      }
     }
   }
 }
