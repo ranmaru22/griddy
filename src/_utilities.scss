@@ -9,20 +9,41 @@
 @use "sass:list";
 
 @mixin add-pseudo-classes($selector, $classes...) {
-  // Adds pseudo classes dynamically to a given selector.
+  // Adds pseudo classes to a given selector.
   @content;
   @each $class in $classes {
     @at-root .#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
       @content;
     }
   }
+}
+
+@mixin add-breakpoints($selector) {
+  // Adds breakpoints to a given selector.
+  @content;
   @each $label, $breakpoint in user.$breakpoints {
-    @at-root .#{$label}\:#{&} {
-      @content;
-    }
-    @each $class in $classes {
-      @at-root .#{$label}\:#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
+    @at-root .#{$label}\:#{string.slice(#{list.nth($selector, 1)}, 2, -1)} {
+      @media screen and (min-width: $breakpoint) {
         @content;
+      }
+    }
+  }
+}
+
+@mixin add-pseudo-classes-with-breakpoints($selector, $classes...) {
+  // Adds pseudo-classes at each breakpoint to a given selector.
+  @include add-pseudo-classes($selector, $classes...) {
+    @content;
+  }
+  @each $label, $breakpoint in user.$breakpoints {
+    @at-root .#{$label}\:#{string.slice(#{list.nth($selector, 1)}, 2, -1)} {
+      @media screen and (min-width: $breakpoint) {
+        @content;
+        @each $class in $classes {
+          @at-root .#{$label}\:#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
+            @content;
+          }
+        }
       }
     }
   }
