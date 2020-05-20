@@ -1,5 +1,4 @@
 @use "../user.config" as user;
-@use "pseudo-classes" as p;
 
 .no-focus {
   &:focus {
