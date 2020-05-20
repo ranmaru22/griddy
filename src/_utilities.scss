@@ -1,0 +1,37 @@
+@use "../user.config" as user;
+
+// To control overflow.
+@mixin overflow {
+  @each $val in ("auto", "visible", "hidden", "clip", "scroll") {
+    &-#{$val} {
+      overflow: $val;
+    }
+  }
+}
+
+.overflow {
+  @include overflow();
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:overflow {
+    @media screen and (min-width: $breakpoint) {
+      @include overflow();
+    }
+  }
+}
+
+// To remove the focus border from form elements.
+.no-focus {
+  &:focus {
+    outline: 0;
+  }
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:no-focus {
+    @media screen and (min-width: $breakpoint) {
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
