@@ -1,0 +1,17 @@
+@use "../user.config" as user;
+@use "pseudo-classes" as p;
+
+.no-focus {
+  &:focus {
+    outline: 0;
+  }
+}
+@each $label, $breakpoint in user.$breakpoints {
+  .#{$label}\:no-focus {
+    @media screen and (min-width: $breakpoint) {
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
