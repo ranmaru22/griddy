@@ -1,8 +1,8 @@
 @use "../../src/grid" as *;
 @use "../../user.config" as user;
 
-@include describe("Grid module") {
-  @include it("sets the grid classes") {
+@include describe("Grid mixin") {
+  @include it("sets the cols classes") {
     @include assert {
       @include output {
         @include grid;
@@ -13,6 +13,8 @@
         }
       }
     }
+  }
+  @include it("sets the rows classes") {
     @include assert {
       @include output {
         @include grid;
@@ -23,6 +25,8 @@
         }
       }
     }
+  }
+  @include it("sets the col-span classes") {
     @include assert {
       @include output {
         @include grid;
@@ -33,6 +37,8 @@
         }
       }
     }
+  }
+  @include it("sets the row-span classes") {
     @include assert {
       @include output {
         @include grid;
@@ -43,29 +49,57 @@
         }
       }
     }
+  }
+}
 
-    @include it("sets the order classes") {
-      @include assert {
-        @include output {
-          @include order;
+@include describe("Order mixin") {
+  @include it("sets all the order classes") {
+    @include assert {
+      @include output {
+        @include order;
+      }
+      @include contains {
+        &-4 {
+          order: 4;
         }
-        @include contains {
-          &-5 {
-            order: 5;
-          }
+        &-5 {
+          order: 5;
+        }
+        &-6 {
+          order: 6;
+        }
+        &-7 {
+          order: 7;
         }
       }
     }
+  }
+}
 
-    @include it("sets the gap classes") {
-      @include assert {
-        @include output {
-          @include gap;
+@include describe("Gap mixin") {
+  @include it("sets all the gap classes") {
+    @include assert {
+      @include output {
+        @include gap;
+      }
+      @include expect {
+        &-0 {
+          gap: 0;
         }
-        @include contains {
-          &-3 {
-            gap: user.$spacer;
-          }
+        &-1 {
+          gap: user.$spacer * 0.25;
+        }
+        &-2 {
+          gap: user.$spacer * 0.5;
+        }
+        &-3 {
+          gap: user.$spacer;
+        }
+        &-4 {
+          gap: user.$spacer * 1.5;
+        }
+        &-5 {
+          gap: user.$spacer * 3;
         }
       }
     }
