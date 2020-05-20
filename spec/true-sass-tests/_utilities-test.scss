@@ -9,7 +9,7 @@
           color: mistyrose;
         }
       }
-      @include contains {
+      @include expect {
         & {
           color: mistyrose;
         }
@@ -29,12 +29,27 @@
           margin: 0;
         }
       }
-      @include contains {
+      @include expect {
         & {
           margin: 0;
         }
         @media screen and (min-width: map-get(user.$breakpoints, "sm")) {
           @at-root .sm\:test-output {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "md")) {
+          @at-root .md\:test-output {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "lg")) {
+          @at-root .lg\:test-output {
+            margin: 0;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "xl")) {
+          @at-root .xl\:test-output {
             margin: 0;
           }
         }
@@ -51,9 +66,42 @@
           border: 1px solid blue;
         }
       }
-      @include contains {
+      @include expect {
+        & {
+          border: 1px solid blue;
+        }
+        @at-root .active\:test-output:active {
+          border: 1px solid blue;
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "sm")) {
+          @at-root .sm\:test-output {
+            border: 1px solid blue;
+          }
+          @at-root .sm\:active\:test-output:active {
+            border: 1px solid blue;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "md")) {
+          @at-root .md\:test-output {
+            border: 1px solid blue;
+          }
+          @at-root .md\:active\:test-output:active {
+            border: 1px solid blue;
+          }
+        }
         @media screen and (min-width: map-get(user.$breakpoints, "lg")) {
+          @at-root .lg\:test-output {
+            border: 1px solid blue;
+          }
           @at-root .lg\:active\:test-output:active {
+            border: 1px solid blue;
+          }
+        }
+        @media screen and (min-width: map-get(user.$breakpoints, "xl")) {
+          @at-root .xl\:test-output {
+            border: 1px solid blue;
+          }
+          @at-root .xl\:active\:test-output:active {
             border: 1px solid blue;
           }
         }
