@@ -62,7 +62,7 @@
 .wrap {
   @include utils.add-breakpoints(&) {
     flex-wrap: wrap;
-    &-0 {
+    &-none {
       flex-wrap: nowrap;
     }
     &-reverse {
