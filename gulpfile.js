@@ -3,10 +3,10 @@ const purgecss = require("gulp-purgecss");
 
 gulp.task("purge", () => {
   return gulp
-    .src("dist/*.css")
+    .src("dist/**/*.css")
     .pipe(
       purgecss({
-        content: ["dist/*.html"],
+        content: ["dist/**/*.html"],
         defaultExtractor: (content) =>
           content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || [],
       })
