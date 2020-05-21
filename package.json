@@ -1,5 +1,5 @@
 {
-  "name": "griddycss",
+  "name": "@ranmaru22/griddycss",
   "version": "1.0.0",
   "description": "A low-level grid-based CSS framework.",
   "scripts": {
