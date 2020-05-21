@@ -1,20 +1,12 @@
 @use "../user.config" as user;
-
-@mixin overflow {
-  @each $val in ("auto", "visible", "hidden", "clip", "scroll") {
-    &-#{$val} {
-      overflow: $val;
-    }
-  }
-}
+@use "utilities" as utils;
 
 .overflow {
-  @include overflow();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:overflow {
-    @media screen and (min-width: $breakpoint) {
-      @include overflow();
+  @each $val in ("auto", "visible", "hidden", "clip", "scroll") {
+    &-#{$val} {
+      @include utils.add-breakpoints(&) {
+        overflow: $val;
+      }
     }
   }
 }
