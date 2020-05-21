@@ -5,7 +5,7 @@ griddy is a low-level grid-based CSS framework, inspired by the awesome [Tailwin
 ## Documentation
 
 ```sh
-npm install griddycss
+npm install @ranmaru22/griddycss
 ```
 
 Or you can clone or download this repo.
