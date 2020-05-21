@@ -56,19 +56,6 @@
       }
     }
   }
-
-  @include it("theoretically works with any input") {
-    @include assert {
-      @include output {
-        @include justify-align-content("foobar");
-      }
-      @include contains {
-        &-start {
-          foobar-content: flex-start;
-        }
-      }
-    }
-  }
 }
 
 @include describe("justify-align-items mixin") {
@@ -167,19 +154,6 @@
         }
         &-baseline {
           align-self: baseline;
-        }
-      }
-    }
-  }
-
-  @include it("theoretically works with any values") {
-    @include assert {
-      @include output {
-        @include justify-align-items("foo", "bar");
-      }
-      @include contains {
-        &-stretch {
-          foo-bar: stretch;
         }
       }
     }
