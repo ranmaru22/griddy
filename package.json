@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/ranmaru22/griddy#readme",
   "devDependencies": {
-    "gulp": "^4.0.2",
     "jasmine": "^3.5.0",
-    "purgecss": "^2.2.1",
     "sass": "^1.26.5",
     "sass-true": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-purgecss": "^2.2.0",
+    "purgecss": "^2.2.1"
   }
 }
