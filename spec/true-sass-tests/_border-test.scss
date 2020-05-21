@@ -41,17 +41,4 @@
       }
     }
   }
-
-  @include it("works with custom colors") {
-    @include assert {
-      @include output {
-        @include border;
-      }
-      @include contains {
-        &-konpeki {
-          border-color: rgb(52, 108, 202);
-        }
-      }
-    }
-  }
 }
