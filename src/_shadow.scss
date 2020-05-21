@@ -12,7 +12,7 @@
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
         0 1px 2px 0 rgba(0, 0, 0, 0.12);
     }
-    &-0 {
+    &-none {
       @include extend-class() {
         box-shadow: none;
       }
@@ -38,6 +38,39 @@
       @include extend-class() {
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
           0 10px 10px -5px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+}
+
+.text-shadow {
+  @include utils.add-breakpoints(&) {
+    @include extend-class() {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    &-none {
+      @include extend-class() {
+        text-shadow: none;
+      }
+    }
+    &-sm {
+      @include extend-class() {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      }
+    }
+    &-md {
+      @include extend-class() {
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+    &-lg {
+      @include extend-class() {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+      }
+    }
+    &-xl {
+      @include extend-class() {
+        text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.35);
       }
     }
   }
