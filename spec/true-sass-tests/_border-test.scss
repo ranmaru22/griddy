@@ -1,43 +1,15 @@
 @use "../../src/border" as *;
 
-@include describe("Border module") {
-  @include it("sets the border class") {
+@include describe("Border mixin") {
+  @include it("sets the border class correctly on given inputs") {
     @include assert {
       @include output {
-        @include border;
+        @include border($w: 12px, $style: dotted, $color: green);
       }
       @include contains {
-        &-inset {
-          border-width: 1px;
-          border-style: inset;
-          border-color: black;
-        }
-      }
-    }
-  }
-
-  @include it("includes border-width classes") {
-    @include assert {
-      @include output {
-        @include border;
-      }
-      @include contains {
-        &-10 {
-          border-width: 10px;
-        }
-      }
-    }
-  }
-
-  @include it("includes border-color classes") {
-    @include assert {
-      @include output {
-        @include border;
-      }
-      @include contains {
-        &-aquamarine {
-          border-color: aquamarine;
-        }
+        border-width: 12px;
+        border-style: dotted;
+        border-color: green;
       }
     }
   }
