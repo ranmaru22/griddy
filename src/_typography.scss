@@ -1,216 +1,121 @@
 @use "../user.config" as user;
+@use "utilities" as utils;
 
-@mixin align {
-  &-left,
-  &-start {
-    text-align: left;
-    text-align: start;
-  }
-  &-right,
-  &-end {
-    text-align: right;
-    text-align: end;
-  }
-  &-center {
-    text-align: center;
-  }
-  &-justify {
-    text-align: justify;
-  }
-}
-
-@mixin weight($pseudo: none) {
-  @if $pseudo == "hover" {
-    &-bolder:hover {
-      font-weight: 900;
-    }
-    &-bold:hover {
-      font-weight: 700;
-    }
-    &-regular:hover {
-      font-weight: 400;
-    }
-    &-light:hover {
-      font-weight: 200;
-    }
-    &-lighter:hover {
-      font-weight: 100;
-    }
-  } @else if $pseudo == "active" {
-    &-bolder:active {
-      font-weight: 900;
-    }
-    &-bold:active {
-      font-weight: 700;
-    }
-    &-regular:active {
-      font-weight: 400;
-    }
-    &-light:active {
-      font-weight: 200;
-    }
-    &-lighter:active {
-      font-weight: 100;
-    }
-  } @else {
-    &-bolder {
-      font-weight: 900;
-    }
-    &-bold {
-      font-weight: 700;
-    }
-    &-regular {
-      font-weight: 400;
-    }
-    &-light {
-      font-weight: 200;
-    }
-    &-lighter {
-      font-weight: 100;
-    }
-  }
-}
-
-@mixin style($pseudo: none) {
-  @if $pseudo == "hover" {
-    &-0:hover {
-      font-style: normal;
-      font-variant: normal;
-      text-decoration: none;
-    }
-    &-italic:hover {
-      font-style: italic;
-    }
-    &-oblique:hover {
-      font-style: oblique;
-    }
-    &-caps:hover {
-      font-variant: small-caps;
-    }
-    &-underline:hover {
-      text-decoration: underline;
-    }
-    &-strikethrough:hover {
-      text-decoration: line-through;
-    }
-  } @else if $pseudo == "active" {
-    &-0:active {
-      font-style: normal;
-      font-variant: normal;
-      text-decoration: none;
-    }
-    &-italic:active {
-      font-style: italic;
-    }
-    &-oblique:active {
-      font-style: oblique;
-    }
-    &-caps:active {
-      font-variant: small-caps;
-    }
-    &-underline:active {
-      text-decoration: underline;
-    }
-    &-strikethrough:active {
-      text-decoration: line-through;
-    }
-  } @else {
-    &-0 {
-      font-style: normal;
-      font-variant: normal;
-      text-decoration: none;
-    }
-    &-italic {
-      font-style: italic;
-    }
-    &-oblique {
-      font-style: oblique;
-    }
-    &-caps {
-      font-variant: small-caps;
-    }
-    &-underline {
-      text-decoration: underline;
-    }
-    &-strikethrough {
-      text-decoration: line-through;
-    }
+@mixin extend-class {
+  @include utils.add-pseudo-classes(
+    &,
+    "hover",
+    "active",
+    "visited",
+    "focus",
+    "disabled"
+  ) {
+    @content;
   }
 }
 
 .align {
-  @include align();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:align {
-    @media screen and (min-width: $breakpoint) {
-      @include align();
+  @include utils.add-breakpoints(&) {
+    &-left,
+    &-start {
+      text-align: left;
+      text-align: start;
+    }
+    &-right,
+    &-end {
+      text-align: right;
+      text-align: end;
+    }
+    &-center {
+      text-align: center;
+    }
+    &-justify {
+      text-align: justify;
     }
   }
 }
 
-.font-weight {
-  @include weight();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:weight {
-    @media screen and (min-width: $breakpoint) {
-      @include weight();
+.weight {
+  @include utils.add-breakpoints(&) {
+    &-bolder {
+      @include extend-class() {
+        font-weight: 900;
+      }
     }
-  }
-}
-
-.hover\:font-weight {
-  @include weight("hover");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:hover\:font-weight {
-    @media screen and (min-width: $breakpoint) {
-      @include weight("hover");
+    &-bold {
+      @include extend-class() {
+        font-weight: 700;
+      }
     }
-  }
-}
-
-.active\:font-weight {
-  @include weight("active");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:active\:font-weight {
-    @media screen and (min-width: $breakpoint) {
-      @include weight("active");
+    &-regular {
+      @include extend-class() {
+        font-weight: 400;
+      }
+    }
+    &-light {
+      @include extend-class() {
+        font-weight: 200;
+      }
+    }
+    &-lighter {
+      @include extend-class() {
+        font-weight: 100;
+      }
     }
   }
 }
 
 .style {
-  @include style();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:style {
-    @media screen and (min-width: $breakpoint) {
-      @include style();
+  @include utils.add-breakpoints(&) {
+    &-normal {
+      @include extend-class() {
+        font-style: normal;
+      }
+    }
+    &-italic {
+      @include extend-class() {
+        font-style: italic;
+      }
+    }
+    &-oblique {
+      @include extend-class() {
+        font-style: oblique;
+      }
     }
   }
 }
 
-.hover\:style {
-  @include weight("hover");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:hover\:style {
-    @media screen and (min-width: $breakpoint) {
-      @include style("hover");
+.variant {
+  @include utils.add-breakpoints(&) {
+    &-normal {
+      @include extend-class() {
+        font-variant: normal;
+      }
+    }
+    &-caps {
+      @include extend-class() {
+        font-variant: small-caps;
+      }
     }
   }
 }
 
-.active\:style {
-  @include weight("active");
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:active\:style {
-    @media screen and (min-width: $breakpoint) {
-      @include style("active");
+.decoration {
+  @include utils.add-breakpoints(&) {
+    &-none {
+      @include extend-class() {
+        text-decoration: none;
+      }
+    }
+    &-underline {
+      @include extend-class() {
+        text-decoration: underline;
+      }
+    }
+    &-strikethrough {
+      @include extend-class() {
+        text-decoration: line-through;
+      }
     }
   }
 }
