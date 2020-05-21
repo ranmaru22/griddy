@@ -1,86 +1,101 @@
 @use "color-names" as c;
 @use "../user.config" as user;
+@use "utilities" as utils;
+@use "sass:string";
 
-@mixin border {
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
+@mixin border($w: 1px, $style: solid, $color: black) {
+  border-width: $w;
+  border-style: $style;
+  border-color: $color;
+}
+
+.border {
+  // @include border();
+  @each $opt in ("", "-solid", "-dashed", "-dotted", "-inset") {
+    &#{$opt} {
+      @if $opt != "" {
+        @include border($style: #{string.slice($opt, 2, -1)});
+      } @else {
+        @include border();
+      }
+      @for $i from 1 through 10 {
+        &-#{$i} {
+          @include utils.add-pseudo-classes-with-breakpoints(
+            &,
+            "hover",
+            "active",
+            "visited",
+            "focus",
+            "disabled"
+          ) {
+            @if $opt != "" {
+              @include border(
+                $style: #{string.slice($opt, 2, -1)},
+                $w: #{$i}px
+              );
+            } @else {
+              @include border($w: #{$i}px);
+            }
+          }
+        }
+      }
+    }
+  }
+
   &-0 {
     border: none;
   }
-  &-dashed {
-    border-width: 1px;
-    border-style: dashed;
-    border-color: black;
-  }
-  &-dotted {
-    border-width: 1px;
-    border-style: dotted;
-    border-color: black;
-  }
-  &-inset {
-    border-width: 1px;
-    border-style: inset;
-    border-color: black;
-  }
-  @for $i from 1 through 10 {
-    &-#{$i} {
-      border-width: #{$i}px;
-    }
-  }
+
   @each $color in c.$colors {
     &-#{"" + $color} {
-      border-color: $color;
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        border-color: $color;
+      }
     }
   }
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
-      border-color: $val;
-    }
-  }
-}
-
-@mixin radius {
-  border-radius: 0.5rem;
-
-  &-0 {
-    border-radius: 0;
-  }
-  &-sm {
-    border-radius: 0.125rem;
-  }
-  &-md {
-    border-radius: 0.25rem;
-  }
-  &-lg {
-    border-radius: 0.75rem;
-  }
-  &-xl {
-    border-radius: 1rem;
-  }
-  &-circle {
-    border-radius: 9999px;
-  }
-}
-
-.border {
-  @include border();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:border {
-    @media screen and (max-width: $breakpoint) {
-      @include border();
+      @include utils.add-pseudo-classes-with-breakpoints(
+        &,
+        "hover",
+        "active",
+        "visited",
+        "focus",
+        "disabled"
+      ) {
+        border-color: $val;
+      }
     }
   }
 }
 
 .rounded {
-  @include radius();
-}
-@each $label, $breakpoint in user.$breakpoints {
-  .#{$label}\:rounded {
-    @media screen and (min-width: $breakpoint) {
-      @include radius();
+  @include utils.add-breakpoints(&) {
+    border-radius: 0.5rem;
+    &-0 {
+      border-radius: 0;
+    }
+    &-sm {
+      border-radius: 0.125rem;
+    }
+    &-md {
+      border-radius: 0.25rem;
+    }
+    &-lg {
+      border-radius: 0.75rem;
+    }
+    &-xl {
+      border-radius: 1rem;
+    }
+    &-circle {
+      border-radius: 9999px;
     }
   }
 }
