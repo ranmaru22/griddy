@@ -111,35 +111,3 @@
     }
   }
 }
-
-@mixin add-pseudo-classes-with-breakpoints($selector, $classes...) {
-  // Adds pseudo-classes at each breakpoint to a given selector.
-  @include add-pseudo-classes($selector, $classes...) {
-    @content;
-  }
-  @each $label, $breakpoint in user.$breakpoints {
-    @if string.slice(#{list.nth($selector, 1)}, 1, 1) == "." {
-      @at-root .#{$label}\:#{string.slice(#{list.nth($selector, 1)}, 2, -1)} {
-        @media screen and (min-width: $breakpoint) {
-          @content;
-          @each $class in $classes {
-            @at-root .#{$label}\:#{$class}\:#{selector.append(string.slice(#{list.nth($selector, 1)}, 2, -1), ":" + $class)} {
-              @content;
-            }
-          }
-        }
-      }
-    } @else {
-      @at-root .#{$label}\:#{$selector} {
-        @media screen and (min-width: $breakpoint) {
-          @content;
-          @each $class in $classes {
-            @at-root .#{$label}\:#{$class}\:#{selector.append($selector, ":" + $class)} {
-              @content;
-            }
-          }
-        }
-      }
-    }
-  }
-}
