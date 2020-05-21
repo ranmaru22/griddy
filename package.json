@@ -1,10 +1,11 @@
 {
-  "name": "griddy",
+  "name": "griddycss",
   "version": "1.0.0",
   "description": "A low-level grid-based CSS framework.",
   "scripts": {
     "test": "jasmine",
-    "purge": "gulp purge"
+    "purge": "gulp purge",
+    "build": "sass _index.scss dist/griddy.css; sass _index.scss dist/griddy.min.css --style compressed"
   },
   "repository": {
     "type": "git",
