@@ -2,9 +2,9 @@
   "name": "griddy",
   "version": "1.0.0",
   "description": "A low-level grid-based CSS framework.",
-  "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "purge": "gulp purge"
   },
   "repository": {
     "type": "git",
