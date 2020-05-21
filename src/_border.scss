@@ -4,13 +4,7 @@
 @use "sass:string";
 
 @mixin extend-class {
-  @include utils.add-pseudo-classes-with-breakpoints(
-    &,
-    "hover",
-    "active",
-    "focus",
-    "disabled"
-  ) {
+  @include utils.add-pseudo-classes(&, "hover", "active", "focus", "disabled") {
     @content;
   }
 }
@@ -22,46 +16,47 @@
 }
 
 .border {
-  // @include border();
-  @each $opt in ("", "-solid", "-dashed", "-dotted", "-inset") {
-    &#{$opt} {
-      @if $opt != "" {
-        @include border($style: #{string.slice($opt, 2, -1)});
-      } @else {
-        @include border();
-      }
-      @for $i from 1 through 10 {
-        &-#{$i} {
-          @include extend-class() {
-            @if $opt != "" {
-              @include border(
-                $style: #{string.slice($opt, 2, -1)},
-                $w: #{$i}px
-              );
-            } @else {
-              @include border($w: #{$i}px);
+  @include utils.add-breakpoints(&) {
+    @each $opt in ("", "-solid", "-dashed", "-dotted", "-inset") {
+      &#{$opt} {
+        @if $opt != "" {
+          @include border($style: #{string.slice($opt, 2, -1)});
+        } @else {
+          @include border();
+        }
+        @for $i from 1 through 10 {
+          &-#{$i} {
+            @include extend-class() {
+              @if $opt != "" {
+                @include border(
+                  $style: #{string.slice($opt, 2, -1)},
+                  $w: #{$i}px
+                );
+              } @else {
+                @include border($w: #{$i}px);
+              }
             }
           }
         }
       }
     }
-  }
 
-  &-0 {
-    border: none;
-  }
+    &-0 {
+      border: none;
+    }
 
-  @each $color in c.$colors {
-    &-#{"" + $color} {
-      @include extend-class() {
-        border-color: $color;
+    @each $color in c.$colors {
+      &-#{"" + $color} {
+        @include extend-class() {
+          border-color: $color;
+        }
       }
     }
-  }
-  @each $name, $val in user.$custom-colors {
-    &-#{$name} {
-      @include extend-class() {
-        border-color: $val;
+    @each $name, $val in user.$custom-colors {
+      &-#{$name} {
+        @include extend-class() {
+          border-color: $val;
+        }
       }
     }
   }
