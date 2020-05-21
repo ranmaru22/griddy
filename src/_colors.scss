@@ -2,31 +2,30 @@
 @use "utilities" as utils;
 @use "color-names" as c;
 
+@mixin extend-class {
+  @include utils.add-pseudo-classes-with-breakpoints(
+    &,
+    "hover",
+    "active",
+    "visited",
+    "focus",
+    "disabled"
+  ) {
+    @content;
+  }
+}
+
 .bg {
   @each $color in c.$colors {
     &-#{"" + $color} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "visited",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         background-color: $color;
       }
     }
   }
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "visited",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         background-color: $val;
       }
     }
@@ -36,28 +35,14 @@
 .text {
   @each $color in c.$colors {
     &-#{"" + $color} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "visited",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         color: $color;
       }
     }
   }
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "visited",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         color: $val;
       }
     }

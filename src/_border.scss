@@ -3,6 +3,18 @@
 @use "utilities" as utils;
 @use "sass:string";
 
+@mixin extend-class {
+  @include utils.add-pseudo-classes-with-breakpoints(
+    &,
+    "hover",
+    "active",
+    "focus",
+    "disabled"
+  ) {
+    @content;
+  }
+}
+
 @mixin border($w: 1px, $style: solid, $color: black) {
   border-width: $w;
   border-style: $style;
@@ -20,13 +32,7 @@
       }
       @for $i from 1 through 10 {
         &-#{$i} {
-          @include utils.add-pseudo-classes-with-breakpoints(
-            &,
-            "hover",
-            "active",
-            "focus",
-            "disabled"
-          ) {
+          @include extend-class() {
             @if $opt != "" {
               @include border(
                 $style: #{string.slice($opt, 2, -1)},
@@ -47,26 +53,14 @@
 
   @each $color in c.$colors {
     &-#{"" + $color} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         border-color: $color;
       }
     }
   }
   @each $name, $val in user.$custom-colors {
     &-#{$name} {
-      @include utils.add-pseudo-classes-with-breakpoints(
-        &,
-        "hover",
-        "active",
-        "focus",
-        "disabled"
-      ) {
+      @include extend-class() {
         border-color: $val;
       }
     }
