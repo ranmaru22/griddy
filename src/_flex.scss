@@ -43,6 +43,19 @@
 .flex {
   @include utils.add-breakpoints(&) {
     display: flex;
+    flex-direction: row;
+    &-column {
+      display: flex;
+      flex-direction: column;
+    }
+    &-reverse {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    &-column-reverse {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 }
 
