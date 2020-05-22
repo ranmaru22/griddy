@@ -424,6 +424,68 @@
 
       <p class="py-2">Note that these classes can override each other in order of appliance.</p>
     </section>
+
+    <section id="bordershadow" class="mt-5">
+      <h2 class="weight-bolder">Borders & Shadows</h2>
+      <p class="py-2">griddy comes with several classes to modify the border and shadow properties
+        of your elements. We've already discussed border color in the colors section, but in order
+        to set borders, you have many more classes available. </p>
+      <p class="py-2">To apply a border to an element, simply give it the <code>.border</code>
+        class. This will, by default, set a 1px wide solid black border. To modify the border
+        further, you can use one of the <code>.border-{type}-{size}</code> classes, where the type
+        can be solid (default), dotted, dashed, or inset, and the size can be a value from 1
+        (default) to 10 which corresponds to width in pixels.</p>
+      <p class="py-2">To remove a border completely, set the <code>.border-0</code> class.</p>
+      <p class="py-2">You can set the border radius with the <code>.rounded</code> classes.</p>
+
+      <section class="my-3 container-sm mx-auto">
+        <div
+          class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center gap-3 p-3">
+          <div class="border p-2">.border</div>
+          <div class="border-2 p-2">.border-2</div>
+          <div class="border-dashed p-2">.border-dashed</div>
+          <div class="border-dotted-3 p-2">.border-dotted-3</div>
+          <div class="border-3 border-blue p-2">.border-3 .border-blue</div>
+          <div class="border rounded p-2">.border .rounded</div>
+          <div class="border-dotted-2 rounded-xl p-2">.border-dotted-2 .rounded-xl</div>
+          <div class="border-dashed-4 rounded-circle p-2">.border-dashed-4 .rounded-circle</div>
+          <div class="border-10 border-springgreen rounded p-2">.border-10 .border-springgreen
+            .rounded</div>
+        </div>
+      </section>
+
+      <p class="py-2">To set a box-shadow, use the <code>.shadow</code> classes. Because of the
+        relatively complex syntax of CSS's box shadow property and the insane amount of classes it
+        would generate to provide options for all of those, this is one of the only opinionated
+        classes in griddy. Shadows come in different presets you can choose from.</p>
+
+      <section class="my-3 container-sm mx-auto">
+        <div
+          class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center gap-3 p-3">
+          <div class="border p-2 shadow-sm">.shadow-sm</div>
+          <div class="border p-2 shadow">.shadow</div>
+          <div class="border p-2 shadow-md">.shadow-md</div>
+          <div class="border p-2 shadow-lg">.shadow-lg</div>
+          <div class="border p-2 shadow-xl">.shadow-xl</div>
+        </div>
+      </section>
+
+      <p class="py-2">The <code>.text-shadow</code> classes work the same way.</p>
+
+      <section class="my-3 container-sm mx-auto">
+        <div
+          class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center gap-3 p-3">
+          <div class="p-2 text-shadow-sm">.text-shadow-sm</div>
+          <div class="p-2 text-shadow">.text-shadow</div>
+          <div class="p-2 text-shadow-md">.text-shadow-md</div>
+          <div class="p-2 text-shadow-lg">.text-shadow-lg</div>
+          <div class="p-2 text-shadow-xl">.text-shadow-xl</div>
+        </div>
+      </section>
+
+      <p class="py-2">Both <code>.shadow</code> and <code>.text-shadow</code> work with
+        pseudo-selectors too.</p>
+    </section>
   </main>
 </body>
 
