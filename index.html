@@ -392,6 +392,38 @@
 
       <p class="py-2">Height and width also support pseudo-selectors.</p>
     </section>
+
+    <section id="marginpadding" class="mt-5">
+      <h2 class="weight-bolder">Margin & Padding</h2>
+      <p class="py-2">Margin and padding of elements can be configured with the
+        <code>.m{direction}-{val}</code> and <code>.p{direction}-{val}</code> classes.</p>
+      <p class="py-2"> Valid values are 0 through 5, where 0 means no margin/padding, and the others
+        depend on the spacer value set in the config. Margin also supports the <code>auto</code>
+        value (you can use <code>.mx-auto</code> to center an element).</p>
+
+      <div class="w-50v mx-auto border rounded grid grid-cols-2 p-3 align-items-center">
+        <p class="justify-self-center py-2"><code>.p-0</code></p>
+        <p>No padding.</p>
+        <p class="justify-self-center py-2"><code>.p-1</code></p>
+        <p>.25 times spacer value, by default .25rem.</p>
+        <p class="justify-self-center py-2"><code>.p-2</code></p>
+        <p>.5 times spacer value, by default .5rem.</p>
+        <p class="justify-self-center py-2"><code>.p-3</code></p>
+        <p>Equal to spacer value, by default 1rem.</p>
+        <p class="justify-self-center py-2"><code>.p-4</code></p>
+        <p>1.5 times spacer value, by default 1.5rem.</p>
+        <p class="justify-self-center py-2"><code>.p-5</code></p>
+        <p>3 times spacer value, by default 3rem.</p>
+      </div>
+
+      <p class="py-2">For directions, you can either just use <code>p</code> and <code>m</code> for
+        all four directions (equivalent to just applying a value to the <code>padding</code> and
+        <code>margin</code> properties, <code>px</code> / <code>py</code> for horizontal and
+        vertical only, or <code>pt</code> / <code>pr</code> / <code>pb</code> / <code>pl</code> for
+        top, right, bottom, or left respectively.</p>
+
+      <p class="py-2">Note that these classes can override each other in order of appliance.</p>
+    </section>
   </main>
 </body>
 
