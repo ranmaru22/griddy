@@ -321,7 +321,7 @@
       </section>
     </section>
 
-    <section id="typography class=" mt-5">
+    <section id="typography" class="mt-5">
       <h2 class="weight-bolder">Typography</h2>
       <p class="py-2">There are several classes for typography built into griddy. It's far from
         feature complete at this stage but it does support the most common properties. Note that
@@ -359,6 +359,38 @@
           </div>
         </div>
       </section>
+    </section>
+
+    <section id="heightwidth" class="mt-5">
+      <h2 class="weight-bolder">Height & Width</h2>
+      <p class="py-2">Height and width of elements can be configured with the <code>.h-{val}</code>
+        and <code>.w-{val}</code> classes. There are many options as values available.</p>
+
+      <ul class="pl-4 my-2">
+        <li class="py-2">
+          <code>.w-100</code>, <code>.w-75</code>, <code>.w-50</code>, <code>.w-25</code> and
+          <code>.w-10</code> correspond to percentage values of the parent container element.
+        </li>
+        <li class="py-2">
+          <code>.w-100v</code>, <code>.w-75v</code>, <code>.w-50v</code>, <code>.w-25v</code> and
+          <code>.w-10v</code> correspond to view-width values of the viewport.
+        </li>
+        <li class="py-2">
+          <code>.w-100p</code>, <code>.w-200p</code>, <code>.w-300p</code>, <code>.w-400p</code> and
+          <code>.w-500p</code> correspond to exact pixel values.
+        </li>
+        <li class="py-2">
+          <code>.w-xs</code>, <code>.w-sm</code>, <code>.w-md</code>, <code>.w-lg</code> and
+          <code>.w-lg</code> depend on the default spacer value set in the config. By default,
+          <code>xs</code> corresponds to <code>$spacer * 1</code>, <code>sm</code> to <code>$spacer
+            * 2</code>, etc.
+        </li>
+        <li class="py-2">
+          <code>.w-0</code> sets width to none.
+        </li>
+      </ul>
+
+      <p class="py-2">Height and width also support pseudo-selectors.</p>
     </section>
   </main>
 </body>

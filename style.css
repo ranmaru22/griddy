@@ -33,6 +33,10 @@ ol>li {
     list-style-type: decimal-leading-zero;
 }
 
+ul>li {
+    list-style-type: square;
+}
+
 code {
     font-family: Monaco, Consolas, "Courier New", Courier, monospace;
     background: lightgray;
