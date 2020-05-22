@@ -300,9 +300,9 @@
         add your own colors to the <code>$custom-colors</code> array in
         <code>_user.config.scss</code>. Simply supply a name as a key and then a valid CSS color
         value (hex, rgb(a), or hsl all work) and you can use them just like the built-ins.</p>
+      <p class="py-2">By applying pseudo-selectors, you can change the colors on different events
+        too, for example on <code>hover:</code> or <code>active:</code> (click).</p>
 
-      <p>By applying pseudo-selectors, you can change the colors on different events too, for
-        example on <code>hover:</code> or <code>active:</code> (click).</p>
       <section class="my-3 container-sm mx-auto">
         <div
           class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center align-items-center gap-3 p-3">
@@ -317,6 +317,46 @@
           <code
             class="grid-col-span-3 bg-cadetblue text-cornsilk border border-firebrick">.bg-cadetblue
             .text-cornsilk .border .border-firebrick</code>
+        </div>
+      </section>
+    </section>
+
+    <section id="typography class=" mt-5">
+      <h2 class="weight-bolder">Typography</h2>
+      <p class="py-2">There are several classes for typography built into griddy. It's far from
+        feature complete at this stage but it does support the most common properties. Note that
+        some of the classes (like the extended weight classes) only work if your fonts support it.
+      </p>
+      <p class="py-2">Like the color classes, all typography classes also support pseudo-selectors.
+      </p>
+
+      <section class="my-3 container-sm mx-auto">
+        <div
+          class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center gap-3 p-3">
+          <div class="flex-column">
+            <span class="py-2 weight-lighter">.weight-lighter</span>
+            <span class="py-2 weight-light">.weight-light</span>
+            <span class="py-2 weight-regular">.weight-regular</span>
+            <span class="py-2 weight-bold">.weight-bold</span>
+            <span class="py-2 weight-bolder">.weight-bolder</span>
+          </div>
+          <div class="flex-column">
+            <span class="py-2 decoration-none">.decoration-none</span>
+            <span class="py-2 decoration-strikethrough">.decoration-strikethrough</span>
+            <span class="py-2 decoration-underline">.decoration-underline</span>
+          </div>
+          <div class="flex-column">
+            <span class="py-2 style-normal">.style-normal</span>
+            <span class="py-2 style-italic">.style-italic</span>
+            <span class="py-2 style-oblique">.style-oblique</span>
+            <span class="py-2 variant-caps">.variant-caps </span>
+          </div>
+          <div class="flex-column grid-col-span-3 justify-self-stretch">
+            <span class="py-2 align-left">.align-left / .align-start</span>
+            <span class="py-2 align-right">.align-right / .align-end</span>
+            <span class="py-2 align-center">.align-center</span>
+            <span class="py-2 align-justify">.align-justify</span>
+          </div>
         </div>
       </section>
     </section>
