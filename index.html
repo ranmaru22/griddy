@@ -217,9 +217,8 @@
       <h2 class="weight-bolder">Grid</h2>
       <p class="py-2">With the <code>.grid</code> class, you can turn a container into a
         grid and further customize it with different layouts.</p>
-
       <p class="py-2">You can use the <code>.order-{n}</code> classes to customize the order of your
-        grid items.</p>
+        grid items, and the <code>.gap-{n}</code> classes to modify the grid gap.</p>
 
       <section class="my-3 container-sm mx-auto">
         <h3 class="mb-2 mt-4"><code>.grid</code> <code>.grid-cols-2</code></h3>
@@ -279,6 +278,45 @@
             <code>.grid-col-from-1</code> <code>.grid-col-to-4</code></div>
           <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
           <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+        </div>
+      </section>
+
+      <section class="my-3 container-sm mx-auto">
+        <h3 class="mb-2 mt-4"><code>.grid</code> <code>.gap-3</code> <code>.p-3</code></h3>
+        <div class="container bg-azure border rounded my-1 grid grid-cols-2 gap-3 p-3">
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+        </div>
+      </section>
+    </section>
+
+    <section id="colors" class="mt-5">
+      <h2 class="weight-bolder">Colors</h2>
+      <p class="py-2">griddy supports all named CSS colors by default. You can apply those to the
+        background, text or border of your elements with the <code>.bg-{color}</code>,
+        <code>.text-{color}</code> and <code>.border-{color}</code> properties. In addition, you can
+        add your own colors to the <code>$custom-colors</code> array in
+        <code>_user.config.scss</code>. Simply supply a name as a key and then a valid CSS color
+        value (hex, rgb(a), or hsl all work) and you can use them just like the built-ins.</p>
+
+      <p>By applying pseudo-selectors, you can change the colors on different events too, for
+        example on <code>hover:</code> or <code>active:</code> (click).</p>
+      <section class="my-3 container-sm mx-auto">
+        <div
+          class="container bg-azure border rounded my-1 grid grid-cols-3 justify-items-center align-items-center gap-3 p-3">
+          <code class="bg-red">.bg-red</code>
+          <code class="bg-greenyellow">.bg-greenyellow</code>
+          <code class="bg-mistyrose">.bg-mistyrose</code>
+          <code class="text-blue">.text-blue</code>
+          <code class="text-darkgoldenrod">.bg-darkgoldenrod</code>
+          <code class="text-darkcyan">.bg-darkcyan</code>
+          <code class="grid-col-span-3 bg-fuchsia hover:bg-darkkhaki active:bg-oldlace">.bg-fuchsia
+            .hover:bg-darkkhaki .active:bg-oldlace</code>
+          <code
+            class="grid-col-span-3 bg-cadetblue text-cornsilk border border-firebrick">.bg-cadetblue
+            .text-cornsilk .border .border-firebrick</code>
         </div>
       </section>
     </section>
