@@ -1,9 +1,0 @@
-@use "utilities" as utils;
-
-.no-focus {
-  @include utils.add-breakpoints(&) {
-    &:focus {
-      outline: 0;
-    }
-  }
-}

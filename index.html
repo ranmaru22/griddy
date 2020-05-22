@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>griddy CSS Framework</title>
+  <link rel="stylesheet" href="dist/griddy.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="container bg-navy text-azure">
+    <h1 class="align-center weight-bold text-lightblue weight-bolder">griddy </h1>
+    <h2 class="align-center text-azure weight-bold pb-2">A LOW LEVEL UNOPINIONATED CSS FRAMEWORK
+    </h2>
+  </header>
+
+  <nav class="bg-azure grid gap-3 lg:flex wrap justify-content-evenly py-3">
+    <p>
+      <a href="#quickstart" class="decoration-none text-darkblue hover:text-shadow">Quick Start</a>
+    </p>
+    <p>
+      <a href="#containers" class="decoration-none text-darkblue hover:text-shadow">Containers</a>
+    </p>
+    <p>
+      <a href="#flex" class="decoration-none text-darkblue hover:text-shadow">Flexbox</a>
+    </p>
+    <p>
+      <a href="#grid" class="decoration-none text-darkblue hover:text-shadow">Grid</a>
+    </p>
+    <p>
+      <a href="#colors" class="decoration-none text-darkblue hover:text-shadow">Colors</a>
+    </p>
+    <p>
+      <a href="#typography" class="decoration-none text-darkblue hover:text-shadow">Typography</a>
+    </p>
+    <p>
+      <a href="#heightwidth" class="decoration-none text-darkblue hover:text-shadow">Height &
+        Width</a>
+    </p>
+    <p>
+      <a href="#marginpadding" class="decoration-none text-darkblue hover:text-shadow">Margin &
+        Padding</a>
+    </p>
+    <p>
+      <a href="#bordershadow" class="decoration-none text-darkblue hover:text-shadow">Borders &
+        Shadows</a>
+    </p>
+  </nav>
+
+  <main class="container-xl mx-auto my-5 px-4">
+    <section id="about" class="my-5">
+      <h2 class="weight-bolder">About</h2>
+      <p class="py-2">griddy is a low-level grid-based CSS framework, inspired by the awesome <a
+          href="https://github.com/tailwindcss" target="_blank">Tailwind CSS</a> and
+        originally built as a capstone project for <a href="https://www.theodinproject.com/home"
+          target="_blank" rel="noopener noreferrer">The Odin Project</a>'s HTML and CSS course. It's
+        written in <a href="https://sass-lang.com/" target="_blank"
+          rel="noopener noreferrer">Sass/SCSS</a>.</p>
+    </section>
+
+    <section id="quickstart" class="my-5">
+      <h2 class="weight-bolder">Quick Start</h2>
+      <ol class="pl-4">
+        <li class="py-2">Copy <code>griddy.css</code> or <code>griddy.min.css</code> into your
+          project directory.</li>
+        <li class="py-2">Link the CSS file in the head of your page.
+          <xmp>
+            <link rel="stylesheet" href="dist/griddy.min.css">
+          </xmp>
+        </li>
+        <li class="py-2">After you built your page, consider running the purge command to remove
+          unused classes to reduce filesize greatly.</li>
+      </ol>
+    </section>
+
+    <section id="containers" class="mt-5">
+      <h2 class="weight-bolder">Containers</h2>
+      <p class="py-2">Containers in griddy are just <code>div</code> elements with a fixed size
+        which depend on
+        your breakpoints. The <code>max-width</code> of <code>.container-sm</code> is the same as
+        the <code>min-width</code> set by the <code>sm</code> breakpoint, for example. By default,
+        those are:</p>
+
+      <section class="my-3">
+        <div class="container-sm bg-azure border rounded my-1">
+          <p class="m-3"><code>.container-sm</code> 640px</p>
+        </div>
+        <div class="container-md bg-azure border rounded my-1">
+          <p class="m-3"><code>.container-md</code> 768px</p>
+        </div>
+        <div class="container-lg bg-azure border rounded my-1">
+          <p class="m-3"><code>.container-lg</code> 1024px</p>
+        </div>
+        <div class="container-xl bg-azure border rounded my-1">
+          <p class="m-3"><code>.container-xl</code> 1280px</p>
+        </div>
+        <div class="container bg-azure border rounded my-1">
+          <p class="m-3"><code>.container</code> always at 100%</p>
+        </div>
+      </section>
+    </section>
+
+    <section id="flex" class="mt-5">
+      <h2 class="weight-bolder">Flexbox</h2>
+      <p class="py-2">With the <code>.flex</code> class, you can turn a container into a flexbox.
+        You can then
+        apply flex properties to it and its items.</p>
+      <p class="py-2">You can control flex-wrap with the <code>.wrap</code>, <code>.wrap-none</code>
+        or
+        <code>.wrap-reverse</code> classes.</p>
+      <p class="py-2">In addition to <code>.flex</code> and <code>.flex-column</code>, there are
+        also the
+        <code>.flex-reverse</code> and <code>.flex-column-reverse</code> classe, which flip the flex
+        items around.</p>
+
+      <section class="my-3 container-sm mx-auto">
+        <h3 class="mb-2 mt-4"><code>.flex</code> ( <code>.justify-content-start</code> )</h3>
+        <div class="container bg-azure border rounded my-1 flex">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-end</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-end">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-center</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-center">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-center</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-center">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-between</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-between">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-around</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-around">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex</code> <code>.justify-content-evenly</code></h3>
+        <div class="container bg-azure border rounded my-1 flex justify-content-evenly">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> ( <code>.align-items-stretch</code> )</h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-stretch">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded align-self-start">
+            <code>.align-self-start</code></div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> <code>.align-items-start</code></h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-start">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded align-self-end">
+            <code>.align-self-end</code></div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> <code>.align-items-end</code></h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-end">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded align-self-center">
+            <code>.align-self-center</code></div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> <code>.align-items-center</code></h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-center">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded align-self-stretch">
+            <code>.align-self-stretch</code></div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> <code>.align-items-baseline</code></h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-baseline">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+
+        <h3 class="mb-2 mt-4"><code>.flex-column</code> <code>.align-items-baseline</code></h3>
+        <div class="container bg-azure border rounded my-1 flex-column align-items-">
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Flex Item</div>
+        </div>
+      </section>
+    </section>
+
+    <section id="grid" class="mt-5">
+      <h2 class="weight-bolder">Grid</h2>
+      <p class="py-2">With the <code>.grid</code> class, you can turn a container into a
+        grid and further customize it with different layouts.</p>
+
+      <p class="py-2">You can use the <code>.order-{n}</code> classes to customize the order of your
+        grid items.</p>
+
+      <section class="my-3 container-sm mx-auto">
+        <h3 class="mb-2 mt-4"><code>.grid</code> <code>.grid-cols-2</code></h3>
+        <div class="container bg-azure border rounded my-1 grid grid-cols-3">
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-row-span-2">
+            <code>.grid-row-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-span-2">
+            <code>.grid-col-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-2">
+            <code>.grid-col-from-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-1 grid-col-to-4">
+            <code>.grid-col-from-1</code> <code>.grid-col-to-4</code></div>
+        </div>
+      </section>
+
+      <section class="my-3 container-sm mx-auto">
+        <h3 class="mb-2 mt-4"><code>.grid</code> <code>.grid-flow-col</code>
+          <code>.grid-rows-3</code></h3>
+        <div class="container bg-azure border rounded my-1 grid grid-flow-col grid-rows-3">
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-row-span-2">
+            <code>.grid-row-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-span-2">
+            <code>.grid-col-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-2">
+            <code>.grid-col-from-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-1 grid-col-to-4">
+            <code>.grid-col-from-1</code> <code>.grid-col-to-4</code></div>
+        </div>
+      </section>
+
+      <section class="my-3 container-sm mx-auto">
+        <h3 class="mb-2 mt-4"><code>.grid</code> <code>.grid-cols-2</code>
+          <code>.grid-flow-row-dense</code></h3>
+        <div class="container bg-azure border rounded my-1 grid grid-flow-row-dense grid-cols-3">
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-row-span-2">
+            <code>.grid-row-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-span-2">
+            <code>.grid-col-span-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-2">
+            <code>.grid-col-from-2</code></div>
+          <div class="m-1 p-2 border border-gray rounded grid-col-from-1 grid-col-to-4">
+            <code>.grid-col-from-1</code> <code>.grid-col-to-4</code></div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+          <div class="m-1 p-2 border border-gray rounded">Grid Item</div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+
+</html>
